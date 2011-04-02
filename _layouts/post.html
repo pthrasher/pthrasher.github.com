@@ -8,6 +8,9 @@ layout: default
 	<div>
 		{{ content }}
 	</div>
+	{% if page.via %}
+		<p class='meta'>(via <a href='{{ page.viaurl }}'>{{ page.via }}</a>)</p>
+	{% endif %}
 </div>
 
 <div id="related">
