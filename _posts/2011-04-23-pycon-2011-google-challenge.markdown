@@ -40,18 +40,17 @@ number of digits, quantity of palindroms
 
 
 Here's the code:
-
-    def partition(to_partition):
-        first_odd = 0
-        for a in range(len(to_partition)):
-            if not to_partition[a] % 2 and a > first_odd:
-                to_partition[a], to_partition[first_odd] =  to_partition[first_odd], to_partition[a]
-                first_odd += 1
-        return to_partition
-
-    import random
-    mylst = [random.randint(1,1000) for i in range(20)]
-    print mylst
-    # => [816, 229, 645, 194, 423, 480, 242, 307, 254, 587, 694, 437, 465, 390, 970, 926, 910, 66, 447, 654]
-    print partition(mylst)
-    # => [194, 480, 242, 254, 816, 694, 390, 970, 926, 910, 66, 654, 437, 465, 229, 645, 307, 587, 447, 423]
+{% highlight python %}
+def googol():
+  # q = quantity to add each iteration
+  # t = total
+  q = t = 9
+  for i in range(1, 100):
+    #if this is odd, lets multiply q*10... we're in a new range
+    if not i%2: q *= 10
+    #add the new range's quantity to our total
+    t += q
+  # Return the total, then convert that into a
+  # string so we can add all the individual digits together.
+  return (t, sum(map(int,str(t))),)
+{% endhighlight %}

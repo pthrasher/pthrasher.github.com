@@ -21,18 +21,19 @@ Essentially this is just a partitioning algorithm. Now, you could do something n
 It's a pretty neat exercise. My first response to him was the quadratic time idea. Since this was a simple problem, I wasn't trying to think of any advanced method to solve it. It wasn't like it needed to scale. It just needed to work. But this taught me an important lesson about Google. Everything... no matter how innocuous, needs to be able to scale.
 
 Here's the code:
+{% highlight python %}
+def partition(to_partition):
+    first_odd = 0
+    for a in range(len(to_partition)):
+        if not to_partition[a] % 2 and a > first_odd:
+            to_partition[a], to_partition[first_odd] =  to_partition[first_odd], to_partition[a]
+            first_odd += 1
+    return to_partition
 
-    def partition(to_partition):
-        first_odd = 0
-        for a in range(len(to_partition)):
-            if not to_partition[a] % 2 and a > first_odd:
-                to_partition[a], to_partition[first_odd] =  to_partition[first_odd], to_partition[a]
-                first_odd += 1
-        return to_partition
-
-    import random
-    mylst = [random.randint(1,1000) for i in range(20)]
-    print mylst
-    # => [816, 229, 645, 194, 423, 480, 242, 307, 254, 587, 694, 437, 465, 390, 970, 926, 910, 66, 447, 654]
-    print partition(mylst)
-    # => [194, 480, 242, 254, 816, 694, 390, 970, 926, 910, 66, 654, 437, 465, 229, 645, 307, 587, 447, 423]
+import random
+mylst = [random.randint(1,1000) for i in range(20)]
+print mylst
+# => [816, 229, 645, 194, 423, 480, 242, 307, 254, 587, 694, 437, 465, 390, 970, 926, 910, 66, 447, 654]
+print partition(mylst)
+# => [194, 480, 242, 254, 816, 694, 390, 970, 926, 910, 66, 654, 437, 465, 229, 645, 307, 587, 447, 423]
+{% endhighlight %}
