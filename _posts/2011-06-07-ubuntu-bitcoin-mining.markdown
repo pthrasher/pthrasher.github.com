@@ -79,13 +79,9 @@ Download and Install Phoenix Miner 1.48
 wget http://svn3.xp-dev.com/svn/phoenix-miner/files/phoenix-1.48.tar.bz2
 tar xvf phoenix*.bz2
 {% endhighlight %}
-Verify that OpenCL is setup and running
-{% highlight bash %}
-cd ~
-cd AMD-APP-SDK-v2.4-lnx64/bin/x86_64
-./clinfo
-{% endhighlight %}
+
 Create a startminer script using code from below.  Make sure to substitute the correct home directory path, miner pool server, miner user and miner password.
+
 {% highlight bash %}
 cd ~
 sudo touch /usr/local/bin/startminer.sh
