@@ -8,6 +8,10 @@ Hello, here's a guide on how to setup a bitcoin miner using linux, and the 2.1 S
 
 *** Warning this may cause irreparable damage to your computer system, harm yourself and your family, burn down your house, neighborhood and city, generate untold amounts of carbon dioxide at your electric company and harm the polar bears and baby seals in the Arctic Circle.  I am NOT responsible if you try this or for any errors that may exist within this post.
 
+That said, the system I originally wrote this for had 4x5850's. This guide is really only meant for the 4xxx/5xxx ati series cards. 6xxx seems to work best on 2.4 sdk, and latest driver... 4/5xxx work best with 2.1 and 10.11
+
+Please consider throwing me some money if this helps you make any. :-) 1GAAZKQh1cHqCR5GWkghRYzXtr21C9ZbaG
+
 Load a fresh Ubuntu Natty 11.04 64-bit Desktop with the latest updates and log into system with a user that has sudo permissions.
 {% highlight bash %}
 sudo apt-get remove nvidia-common
@@ -87,10 +91,11 @@ cd pyopencl-0.92
 make
 sudo make install
 {% endhighlight %}
-Download and Install Phoenix Miner 1.48
+Download and install Diablo Miner (I've had the best mhash's by far with diablo on 2.1)
 {% highlight bash %}
-wget http://svn3.xp-dev.com/svn/phoenix-miner/files/phoenix-1.48.tar.bz2
-tar xvf phoenix*.bz2
+cd ~
+wget http://adterrasperaspera.com/images/DiabloMiner.zip
+unzip DiabloMiner.zip
 {% endhighlight %}
 
 Create a startminer script using code from below.  Make sure to substitute the correct home directory path, miner pool server, miner user and miner password.
@@ -107,9 +112,10 @@ Paste the following in:
 {% highlight bash %}
 # ${1} is used as a variable for the username, password and for the gpu device number.  Ex. mineruser0, minerpass0, Device=0 or mineruser1, minerpass1, Device=1
 HOMEDIR=/home/user
-MINERSERV=btcmine.com:8332
-MINERUSER=mineruser@miner${1}
-MINERPASS=minerpass${1}
+MINERSERV=mining.eligius.st
+MINERPORT=8337
+MINERUSER=mybitcoinaddress
+MINERPASS=arbitrarypassword
 
 export AMDAPPSDKROOT=${HOMEDIR}/ati-stream-sdk-v2.1-lnx64/
 export AMDAPPSDKSAMPLESROOT=${HOMEDIR}/ati-stream-sdk-v2.1-lnx64/
@@ -118,9 +124,10 @@ export LD_LIBRARY_PATH=${AMDAPPSDKROOT}lib/x86_64:${LD_LIBRARY_PATH}
 #Overclock GPU to 875Mhz
 DISPLAY=:0 aticonfig --od-enable --adapter=all
 DISPLAY=:0 aticonfig --od-setclocks=875,1000 --adapter=${1}
-cd ${HOMEDIR}/phoenix-1.48
+cd ${HOMEDIR}/DiabloMiner
 echo "Startming Miner: ${1}"
-${HOMEDIR}/phoenix-1.48/phoenix.py -u http://${MINERUSER}:${MINERPASS}@${MINERSERV} -k phatk VECTORS BFI_INT AGGRESSION=12 DEVICE=${1}
+
+DISPLAY=:0 ${HOMEDIR}/DiabloMiner/DiabloMiner-Linux.sh -u ${MINERUSER} -p ${MINERPASS} -l ${MINERSERV} -r ${MINERPORT} -D ${1} -v 2 -w 256
 {% endhighlight %}
 Setup Headless Bitcoin Mining 
  *** Warning *** This will stop your computer from booting a graphical desktop and allow only text console or remote ssh access into the mining server. 
