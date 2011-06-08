@@ -135,6 +135,8 @@ script
 end script
 {% endhighlight %}
 
+Then do:
+
 {% highlight bash %}
    sudo vi /etc/init/btcminer_0.conf
 {% endhighlight %}
@@ -154,7 +156,7 @@ script
 end script
 {% endhighlight %}
 
-Paste the following in:
+Then do:
 
 {% highlight bash %}
    sudo vi /etc/init/btcminer_1.conf
@@ -206,6 +208,8 @@ script
   exec  /usr/bin/xterm -geometry 80x40+0+0 -e "/usr/bin/screen -d -r gpu0"
 end script
 {% endhighlight %}
+
+Then do:
 
 {% highlight bash %}
 sudo vi /etc/init/btcmonitor_1.conf
