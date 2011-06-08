@@ -102,8 +102,8 @@ MINERSERV=btcmine.com:8332
 MINERUSER=mineruser@miner${1}
 MINERPASS=minerpass${1}
 
-export AMDAPPSDKROOT=${HOMEDIR}/AMD-APP-SDK-v2.4-lnx64/
-export AMDAPPSDKSAMPLESROOT=${HOMEDIR}/AMD-APP-SDK-v2.4-lnx64/
+export AMDAPPSDKROOT=${HOMEDIR}/ati-stream-sdk-v2.1-lnx64/
+export AMDAPPSDKSAMPLESROOT=${HOMEDIR}/ati-stream-sdk-v2.1-lnx64/
 export LD_LIBRARY_PATH=${AMDAPPSDKROOT}lib/x86_64:${LD_LIBRARY_PATH}
 
 #Overclock GPU to 875Mhz
