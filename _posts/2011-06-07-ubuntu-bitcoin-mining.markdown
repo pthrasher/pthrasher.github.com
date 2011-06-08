@@ -4,20 +4,20 @@ title: Ubuntu 11.04 Natty 64bit Headless Bitcoin mining 11.5 ATI driver and 2.1 
 published: true
 ---
 
-Hello, here's a guide on how to setup a bitcoin miner using linux, and the 2.1 SDK. 2.1 being favorable over 2.4 for some cards. I stole 99% of this from http://forum.bitcoin.org/index.php?topic=9239.0
+Hello, here's a guide on how to setup a bitcoin miner using linux, and the 2.1 SDK. 2.1 being favorable over 2.4 for some cards. I stole 99% of this from [here](http://forum.bitcoin.org/index.php?topic=9239.0)
 
 *** Warning this may cause irreparable damage to your computer system, harm yourself and your family, burn down your house, neighborhood and city, generate untold amounts of carbon dioxide at your electric company and harm the polar bears and baby seals in the Arctic Circle.  I am NOT responsible if you try this or for any errors that may exist within this post.
 
 Load a fresh Ubuntu Natty 11.04 64-bit Desktop with the latest updates and log into system with a user that has sudo permissions.
-
-   sudo apt-get remove nvidia-common
-   sudo apt-get install libqtgui4
-
+{% highlight bash %}
+sudo apt-get remove nvidia-common
+sudo apt-get install libqtgui4
+{% endhighlight %}
 Load python and other development tools
-
+{% highlight bash %}
 cd ~
 sudo apt-get install python-setuptools python-numpy subversion g++ libboost-all-dev
-
+{% endhighlight %}
 Download and install ATI Driver 11.5 for Linux 64bit.
 {% highlight bash %}
 cd ~
