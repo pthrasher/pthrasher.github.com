@@ -18,7 +18,7 @@ Load python and other development tools
 cd ~
 sudo apt-get install python-setuptools python-numpy subversion g++ libboost-all-dev
 {% endhighlight %}
-Download and install ATI Driver 11.5 for Linux 64bit.
+Download and install ATI Driver 11.5 for Linux 64bit. (alternate 10.11 instructions below)
 {% highlight bash %}
 cd ~
 wget http://www2.ati.com/drivers/linux/ati-driver-installer-11-5-x86.x86_64.run
@@ -28,6 +28,19 @@ sudo apt-get -f install
 sudo aticonfig -f --initial --adapter=all
 sudo reboot
 {% endhighlight %}
+
+Alternatively, you may wish to download and install ATI Driver 10.11:
+(this is currently untested, but should work. If it does, please let me know in the comments.)
+{% highlight bash %}
+cd ~
+wget http://dl.dropbox.com/u/4730227/ati-driver-installer-10-11-x86.x86_64.run
+sudo sh ati-driver-installer-10-11-x86.x86_64.run --buildpkg Ubuntu/natty
+sudo dpkg -i *.deb
+sudo apt-get -f install
+sudo aticonfig -f --initial --adapter=all
+sudo reboot
+{% endhighlight %}
+
 Verify that the ATI Driver is setup and running
 {% highlight bash %}
 cd ~
