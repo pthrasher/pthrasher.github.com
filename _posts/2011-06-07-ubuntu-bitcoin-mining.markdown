@@ -93,6 +93,8 @@ sudo chmod 755 /usr/local/bin/startminer.sh
 sudo vi /usr/local/bin/startminer.sh
 {% endhighlight %}
 
+Paste the following in:
+
 {% highlight bash %}
 # ${1} is used as a variable for the username, password and for the gpu device number.  Ex. mineruser0, minerpass0, Device=0 or mineruser1, minerpass1, Device=1
 HOMEDIR=/home/user
@@ -121,6 +123,8 @@ sudo mv /etc/init/gdm.conf /etc/init/gdm.org
 sudo vi /etc/init/startx.conf
 {% endhighlight %}
 
+Paste the following in:
+
 {% highlight bash %}
 description     "Start X Server for btc mining"
 start on runlevel [2345]
@@ -135,6 +139,8 @@ end script
    sudo vi /etc/init/btcminer_0.conf
 {% endhighlight %}
 
+Paste the following in:
+
 {% highlight bash %}
 description     "Start BTC Mining"
 start on runlevel [2345]
@@ -148,9 +154,13 @@ script
 end script
 {% endhighlight %}
 
+Paste the following in:
+
 {% highlight bash %}
    sudo vi /etc/init/btcminer_1.conf
 {% endhighlight %}
+
+Paste the following in:
 
 {% highlight bash %}
 description     "Start BTC Mining"
@@ -166,8 +176,8 @@ end script
 {% endhighlight %}
 How to access the miner server
 
-   ssh into the mining server as your normal login user.
-   `sudo screen -r gpu0` or `sudo screen -r gpu1`
+ssh into the mining server as your normal login user.
+`sudo screen -r gpu0` or `sudo screen -r gpu1`
 
 To disconnect from screen Control-A + Control-D.
 
@@ -180,6 +190,8 @@ How to monitor your screens on an Xterminal on the main Xwindows console on boot
 {% highlight bash %}
 sudo vi /etc/init/btcmonitor_0.conf
 {% endhighlight %}
+
+Paste the following in:
 
 {% highlight bash %}
 description     "Start BTC Monitor 0"
@@ -198,6 +210,9 @@ end script
 {% highlight bash %}
 sudo vi /etc/init/btcmonitor_1.conf
 {% endhighlight %}
+
+
+Paste the following in:
 
 {% highlight bash %}
 description     "Start BTC Monitor 1"
