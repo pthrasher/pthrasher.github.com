@@ -1,6 +1,6 @@
 ---
 layout: post
-title: template
+title: Ubuntu 11.04 Natty 64bit Headless Bitcoin mining 11.5 ATI driver and 2.1 SDK
 published: true
 ---
 
