@@ -15,7 +15,7 @@ body {
     margin-bottom: 15px;
 }
 
-h1 {
+h1, h2 {
     font-family: 'Marvel', sans-serif;
     font-weight:700;
     font-size:16pt;
@@ -29,7 +29,7 @@ ul {
 }
 
 li {
-    margin: 3px 0;
+    margin: 10px 0;
 }
 
 li span {
@@ -37,16 +37,16 @@ li span {
     color: #333;
 }
 
-a {
+#post a, #related a, .footer a, #over a, #home a, a.dsq-subscribe-email, a.dsq-subscribe-rss, a.dsq-brlink, #dsq-account-dropdown a{
     font-family: 'Marvel', sans-serif;
-    margin:1px;
-    padding:1px;
+    margin:2px;
+    padding:5px;
     background: #000;
     color: #FFF;
     text-decoration:none;
 }
 
-a:hover {
+#post a:hover, #related a:hover, .footer a:hover, #over a:hover, #home a:hover, a.dsq-subscribe-email:hover, a.dsq-subscribe-rss:hover, a.dsq-brlink:hover, #dsq-account-dropdown a:hover {
     /*background: #FFF;*/
     /*color: #000;*/
     text-decoration:underline;
