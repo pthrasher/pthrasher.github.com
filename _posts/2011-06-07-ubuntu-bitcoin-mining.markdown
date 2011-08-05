@@ -17,11 +17,6 @@ Load a fresh Ubuntu Natty 11.04 64-bit Desktop with the latest updates and log i
 sudo apt-get remove nvidia-common
 sudo apt-get install libqtgui4
 {% endhighlight %}
-Load python and other development tools
-{% highlight bash %}
-cd ~
-sudo apt-get install python-setuptools python-numpy subversion g++ libboost-all-dev
-{% endhighlight %}
 Download and install ATI Driver 11.5 for Linux 64bit. (alternate 10.11 instructions below)
 {% highlight bash %}
 cd ~
@@ -45,27 +40,11 @@ sudo aticonfig -f --initial --adapter=all
 sudo reboot
 {% endhighlight %}
 
-Verify that the ATI Driver is setup and running
+Verify that the ATI Driver is setup and running (disclaimer... this never
+worked for me)
 {% highlight bash %}
 cd ~
 DISPLAY=:0 sudo fglrxinfo
-{% endhighlight %}
-Download and install bitcoin
-{% highlight bash %}
-cd ~
-wget http://downloads.sourceforge.net/project/bitcoin/Bitcoin/bitcoin-0.3.21/bitcoin-0.3.21-linux.tar.gz
-tar xzvf bitcoin-0.3.21-linux.tar.gz
-chmod +x bitcoin-0.3.21/bin/64/bitcoin*
-mkdir -p ~/.bitcoin
-echo "rpcuser=user" >> ~/.bitcoin/bitcoin.conf
-echo "rpcpassword=password" >> ~/.bitcoin/bitcoin.conf
-{% endhighlight %}
-Install python-jsonrpc
-{% highlight bash %}
-cd ~
-svn checkout http://svn.json-rpc.org/trunk/python-jsonrpc
-cd python-jsonrpc/
-sudo python setup.py install
 {% endhighlight %}
 Download and install AMD APP SDK 2.1 for Linux 64bit.
 {% highlight bash %}
@@ -81,16 +60,6 @@ wget http://download2-developer.amd.com/amd/Stream20GA/icd-registration.tgz
 cd /
 sudo tar xfz $AMDAPPSDKROOT/icd-registration.tgz
 {% endhighlight %}
-Download, Compile and Install pyopencl-0.92
-{% highlight bash %}
-cd ~
-wget http://pypi.python.org/packages/source/p/pyopencl/pyopencl-0.92.tar.gz
-tar xzvf pyopencl-0.92.tar.gz
-cd pyopencl-0.92
-./configure.py --cl-inc-dir=${AMDAPPSDKROOT}include --cl-lib-dir=${AMDAPPSDKROOT}lib/x86_64
-make
-sudo make install
-{% endhighlight %}
 Download and install Diablo Miner (I've had the best mhash's by far with diablo on 2.1)
 {% highlight bash %}
 cd ~
@@ -99,6 +68,9 @@ unzip DiabloMiner.zip
 {% endhighlight %}
 
 Create a startminer script using code from below.  Make sure to substitute the correct home directory path, miner pool server, miner user and miner password.
+
+I had 4 cards in my computer, so I created 4 scripts... Adjust for your own
+setup.
 
 {% highlight bash %}
 cd ~
