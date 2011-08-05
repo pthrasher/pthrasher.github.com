@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import datetime
 import unicodedata
 import os
@@ -47,11 +48,11 @@ def confirm(prompt=None, resp=False):
             return False
 
 
-def slugify(s):
+def slugify(s, maximum=50):
     slug = unicodedata.normalize('NFKD', unicode(s))
     slug = slug.encode('ascii', 'ignore').lower()
     slug = re.sub(r'[^a-z0-9]+', '-', slug).strip('-')
-    return re.sub(r'[-]+', '-', slug)
+    return re.sub(r'[-]+', '-', slug)[:maximum]
 
 
 title = raw_input("title: ")
@@ -60,15 +61,15 @@ published = confirm(prompt="published? ")
 today = datetime.date.today()
 
 fname = "%s-%s.markdown" % (today.strftime("%Y-%m-%d"), slug)
-yaml = """
----
+yaml = """---
 layout: post
 title: %s
 published: %s
 ---
+
 """ % (title, json.dumps(published))
 f = open("_posts/%s" % fname, "w")
 f.write(yaml)
 f.close()
-call(["mvim", "_posts/%s" % fname])
+call(["mvim", "+", "_posts/%s" % fname])
 
