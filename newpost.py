@@ -67,6 +67,7 @@ title: %s
 published: %s
 ---
 
+
 """ % (title, json.dumps(published))
 f = open("_posts/%s" % fname, "w")
 f.write(yaml)
