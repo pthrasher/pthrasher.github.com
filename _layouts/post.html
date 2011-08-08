@@ -6,13 +6,21 @@ layout: default
 	<span class="date">{{ page.date | date_to_string }}</span><!-- a class="FlattrButton" style="display:none;" rev="flattr;button:compact;"
 	href="http://pthrasher.github.com"></a -->
 	<div>
-		{{ content }}
+    <ul>
+        <li>{{ content }}</li>
+    </ul>
 	</div>
 	{% if page.via %}
 		<p class='meta'>(via <a href='{{ page.viaurl }}'>{{ page.via }}</a>)</p>
 	{% endif %}
 </div>
 
+<div id="comments">
+	<h2>Critical Acclaim</h2>
+    <ul>
+        <li><div id="boastful"></div></li>
+    </ul>
+</div>
 <div id="related">
   <h2>Related Posts</h2>
   <ul class="posts">
@@ -22,29 +30,6 @@ layout: default
   </ul>
 </div>
 
-<div id="comments">
-	<h2>Critical Acclaim</h2>
-    <div id="boastful"></div>
-	<!--div id="disqus_thread"></div>
-	<script type="text/javascript">
-	    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-	    var disqus_shortname = 'pthrashersblog'; // required: replace example with your forum shortname
-		var disqus_developer = 0; // developer mode is on
-
-	    // The following are highly recommended additional parameters. Remove the slashes in front to use.
-	    // var disqus_identifier = '{{ page.title }}';
-	    // var disqus_url = '{{ page.url }}';
-
-	    /* * * DON'T EDIT BELOW THIS LINE * * */
-	    (function() {
-	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	    })();
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-	<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a -->
-</div>
 <script type="text/javascript" charset="utf-8">
     $(function(){
         $("#boastful").boastful({empty_message: "No one's mentioned this page on Twitter yet. <a href=\"http://twitter.com?status=http://philipthrasher.com{{page.url}}\">You could be the first</a>."});

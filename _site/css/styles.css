@@ -52,7 +52,7 @@ a:hover {
     text-decoration:underline;
 }
 
-#boastful a {
+a>img {
     background: transparent;
 }
 
