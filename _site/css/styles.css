@@ -52,6 +52,10 @@ a:hover {
     text-decoration:underline;
 }
 
+#boastful a {
+    background: transparent;
+}
+
 #comments, #post, #related {
     width: 800px;
     margin-left:10px;
