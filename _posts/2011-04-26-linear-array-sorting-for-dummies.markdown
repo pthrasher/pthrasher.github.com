@@ -12,9 +12,9 @@ This post is a simple one to show the answer to a "simple" qualifying question a
 What he meant was splitting the array up like below:
 
 Original random array:  
-[even, odd, odd, even, even, odd, odd]  
+\[even, odd, odd, even, even, odd, odd\]  
 New array:  
-[even, even, even, odd, odd, odd, odd]  
+\[even, even, even, odd, odd, odd, odd\]  
 
 Essentially this is just a partitioning algorithm. Now, you could do something nasty like searching through the array, popping off any odd numbers, and then pushing them onto the end of the array. The only problem with that approach is that it is a quadratic time algorithm. What you want is linear time. We want to go through this array only once, and move all items within that one array without making any copies.
 

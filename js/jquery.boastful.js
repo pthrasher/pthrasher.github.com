@@ -13,7 +13,7 @@
     function format_tweetback(tweetback) {
       formatted  = ''
       formatted += '<div class="boastful">'
-      formatted +=   '<a href="'+tweetback.permalink_url+'">'
+      formatted +=   '<a class="boastful_link" href="'+tweetback.permalink_url+'">'
       formatted +=     '<img src="'+tweetback.author.photo_url+'" />'
       formatted +=   '</a>'
       formatted +=   '<div class="boastful_pointer"></div>'
@@ -38,7 +38,7 @@
         $('.boastful').mouseover(function(){ $(this).children('.boastful_tweet, .boastful_pointer').show() })
         $('.boastful').mousemove(function(kmouse){
           $(this).children('.boastful_tweet').css({
-            left:$(this).position().left-105,
+            left:$(this).position().left,
             top:$(this).position().top+25
           })
           $(this).children('.boastful_pointer').css({

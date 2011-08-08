@@ -17,7 +17,7 @@ Does that verse in any way even sound like it supports Jihad? Not to me. Yet thi
 You might be saying, "Well, perhaps it's vague on purpose, but the message may still be there somehow that they should kill people of other faiths." Take a look at the next verse I have from the Qur'an.
 
 > **Quran, chapter 2, verse 62:**   
-> VERILY, those who have attained to faith [in this writ], as well as those who follow the Jewish faith, and the Christians, and the Sabians – all who believe in God and the Last Day and do righteous deeds – shall have their reward with their Sustainer; and no fear need they have, and neither shall they grieve.
+> VERILY, those who have attained to faith \[in this writ\], as well as those who follow the Jewish faith, and the Christians, and the Sabians – all who believe in God and the Last Day and do righteous deeds – shall have their reward with their Sustainer; and no fear need they have, and neither shall they grieve.
 
 I think that one pretty much explains itself.
 
