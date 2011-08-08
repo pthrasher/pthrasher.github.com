@@ -11,19 +11,16 @@
     options = $.extend({}, defaults, options)
 
     function format_tweetback(tweetback) {
-      var title = ''
-      title += '@'+tweetback.author.url.split('/').pop()+'<br />';
-      title += tweetback.author.photo_url;
       formatted  = ''
       formatted += '<div class="boastful">'
-      formatted +=   '<a title="'+title+'" class="boastful_link" href="'+tweetback.permalink_url+'">'
+      formatted +=   '<a class="boastful_link" href="'+tweetback.permalink_url+'">'
       formatted +=     '<img src="'+tweetback.author.photo_url+'" />'
       formatted +=   '</a>'
-      //formatted +=   '<div class="boastful_pointer"></div>'
-      //formatted +=   '<div class="boastful_tweet" style="display: none">'
-      //formatted +=     '<div class="boastful_handle">@'+tweetback.author.url.split('/').pop()+'</div>'
-      //formatted +=     '<div class="boastful_content">'+tweetback.content+'</div>'
-      //formatted +=   '</div>'
+      formatted +=   '<div class="boastful_pointer"></div>'
+      formatted +=   '<div class="boastful_tweet" style="display: none">'
+      formatted +=     '<div class="boastful_handle">@'+tweetback.author.url.split('/').pop()+'</div>'
+      formatted +=     '<div class="boastful_content">'+tweetback.content+'</div>'
+      formatted +=   '</div>'
       formatted += '</div>'
       return formatted
     }
@@ -36,9 +33,7 @@
             return true
           }
           author_urls.push(tweetback.author.url)
-          var new_image = $(format_tweetback(tweetback))
-          $("a", new_image).tipsy({html: true, gravity:$.fn.tipsy.autoWE})
-          output.append(new_image)
+          output.append(format_tweetback(tweetback))
         })
         $('.boastful').mouseover(function(){ $(this).children('.boastful_tweet, .boastful_pointer').show() })
         $('.boastful').mousemove(function(kmouse){
