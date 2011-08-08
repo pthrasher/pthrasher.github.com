@@ -1,9 +1,9 @@
 body {
     font-family: 'IM Fell English', serif;
-    font-color: #000;
+    font-color: #333;
     font-size:12pt;
-    margin:0px;
-    padding:0px;
+    margin:0 0 35px 0;
+    padding:0;
 }
 
 #home, .footer, #over {
@@ -37,18 +37,18 @@ li span {
     color: #333;
 }
 
-#post a, #related a, .footer a, #over a, #home a, a.dsq-subscribe-email, a.dsq-subscribe-rss, a.dsq-brlink, #dsq-account-dropdown a{
+a {
     font-family: 'Marvel', sans-serif;
     margin:2px;
     padding:5px;
-    background: #000;
+    background: #333;
     color: #FFF;
     text-decoration:none;
 }
 
-#post a:hover, #related a:hover, .footer a:hover, #over a:hover, #home a:hover, a.dsq-subscribe-email:hover, a.dsq-subscribe-rss:hover, a.dsq-brlink:hover, #dsq-account-dropdown a:hover {
+a:hover {
     /*background: #FFF;*/
-    /*color: #000;*/
+    /*color: #333;*/
     text-decoration:underline;
 }
 
@@ -57,6 +57,7 @@ li span {
     margin-left:10px;
 }
 .highlight {
+    font-size:11pt;
     background-color: #002B36;
     overflow:auto;
     padding:5px;
@@ -66,4 +67,17 @@ strong {
     font-weight:700;
 }
 
+#post h1 {
+    font-family: 'Marvel', sans-serif;
+    font-weight:700;
+    font-size:20pt;
+    display:inline;
+}
+#post p {
+    color: #444;
+}
+
+.date {
+    color:#666;
+}
 
