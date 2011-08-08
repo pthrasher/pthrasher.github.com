@@ -85,3 +85,16 @@ strong {
     color:#666;
 }
 
+#totop {
+    padding:20px;
+    font-size:24pt;
+    font-weight:700;
+    position:fixed;
+    right:50px;
+    top:0px;
+    opacity:.6;
+}
+#totop:hover {
+    text-decoration:none;
+    opacity:1;
+}
