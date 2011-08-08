@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Ubuntu 11.04 Natty 64bit Headless Bitcoin mining 11.5 ATI driver and 2.1 SDK</title>
+
+<!-- script type="text/javascript">
+/* <![CDATA[ */
+    (function() {
+        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+        t.parentNode.insertBefore(s, t);
+    })();
+/* ]]> */
+</script -->
+
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+    <!-- Homepage CSS -->
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" media="screen, projection" />
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Marvel:400,700|IM+Fell+English' rel='stylesheet' type='text/css'>
+
+    <!-- Jquery, and Boastful -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/tipsy.css" type="text/css" media="screen" charset="utf-8">
+    <script type="text/javascript" src="/js/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="/js/jquery.boastful.js"></script>
+    <link rel="stylesheet" href="/css/boastful.css" type="text/css" media="screen" charset="utf-8">
+</head>
+<body>
+    <div class="site">
+        <div id="over">
+            &not;&nbsp;pthrash
+            <a href="/">home</a> 
+            <a href="/about.html">about</a>
+            <a href="http://github.com/pthrasher/">github.com/pthrasher</a>
+            <a href="http://twitter.com/philipthrasher/">twitter.com/philipthrasher</a>
+            <a href="http://youtube.com/philipthrasher/">youtube.com/philipthrasher</a>
+        </div>
+        <div id="post">
+	<h1>Ubuntu 11.04 Natty 64bit Headless Bitcoin mining 11.5 ATI driver and 2.1 SDK</h1> - 
+	<span class="date">07 Jun 2011</span><!-- a class="FlattrButton" style="display:none;" rev="flattr;button:compact;"
+	href="http://pthrasher.github.com"></a -->
+	<div>
+    <ul>
+        <li><p>Hello, here&#8217;s a guide on how to setup a bitcoin miner using linux, and the 2.1 SDK. 2.1 being favorable over 2.4 for some cards. I stole 99% of this from <a href='http://forum.bitcoin.org/index.php?topic=9239.0'>here</a></p>
+
+<p>*** Warning this may cause irreparable damage to your computer system, harm yourself and your family, burn down your house, neighborhood and city, generate untold amounts of carbon dioxide at your electric company and harm the polar bears and baby seals in the Arctic Circle. I am NOT responsible if you try this or for any errors that may exist within this post.</p>
+
+<p>That said, the system I originally wrote this for had 4x5850&#8217;s. This guide is really only meant for the 4xxx/5xxx ati series cards. 6xxx seems to work best on 2.4 sdk, and latest driver&#8230; 4/5xxx work best with 2.1 and 10.11</p>
+
+<p>Please consider throwing me some money if this helps you make any. :-) 1GAAZKQh1cHqCR5GWkghRYzXtr21C9ZbaG</p>
+
+<p>Load a fresh Ubuntu Natty 11.04 64-bit Desktop with the latest updates and log into system with a user that has sudo permissions.</p>
+
+<p>Download and install ATI Driver 11.5 for Linux 64bit. (alternate 10.11 instructions below)</p>
+
+<p>Alternatively, you may wish to download and install ATI Driver 10.11: (this is currently untested, but should work. If it does, please let me know in the comments.)</p>
+
+<p>Verify that the ATI Driver is setup and running (disclaimer&#8230; this never worked for me)</p>
+
+<p>Download and install AMD APP SDK 2.1 for Linux 64bit.</p>
+
+<p>Download and install Diablo Miner (I&#8217;ve had the best mhash&#8217;s by far with diablo on 2.1)</p>
+
+<p>Create a startminer script using code from below. Make sure to substitute the correct home directory path, miner pool server, miner user and miner password.</p>
+
+<p>I had 4 cards in my computer, so I created 4 scripts&#8230; Adjust for your own setup.</p>
+
+<p>Paste the following in:</p>
+
+<p>Setup Headless Bitcoin Mining *** Warning *** This will stop your computer from booting a graphical desktop and allow only text console or remote ssh access into the mining server. If you rely on a GUI for administration you may want to rethink this.</p>
+
+<p>Paste the following in:</p>
+
+<p>Then do:</p>
+
+<p>Paste the following in:</p>
+
+<p>Then do:</p>
+
+<p>Paste the following in:</p>
+
+<p>How to access the miner server</p>
+
+<p>ssh into the mining server as your normal login user. <code>sudo screen -r gpu0</code> or <code>sudo screen -r gpu1</code></p>
+
+<p>To disconnect from screen Control-A + Control-D.</p>
+
+<p>How to check the GPU temperatures</p>
+
+<p>ssh into mining server as your normal login user. <code>DISPLAY=:0 sudo aticonfig --odgt --adapter=all</code></p>
+
+<p>How to monitor your screens on an Xterminal on the main Xwindows console on boot up.</p>
+
+<p>Paste the following in:</p>
+
+<p>Then do:</p>
+
+<p>Paste the following in:</p></li>
+    </ul>
+	</div>
+	
+</div>
+
+<div id="comments">
+	<h2>Critical Acclaim</h2>
+    <ul>
+        <li><div id="boastful"></div></li>
+    </ul>
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>24 May 2011</span> &raquo; <a href="/2011/05/24/islam-doesnt-condone-jihad.html">Islam Doesn't Preach or Condone Jihad</a></li>
+    
+      <li><span>26 Apr 2011</span> &raquo; <a href="/2011/04/26/linear-array-sorting-for-dummies.html">Linear Array Sorting for Dummies</a></li>
+    
+      <li><span>23 Apr 2011</span> &raquo; <a href="/2011/04/23/pycon-2011-google-challenge.html">Google Challenge from PyCon 2011</a></li>
+    
+  </ul>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(function(){
+        $("#boastful").boastful({
+            empty_message: "No one's mentioned this page on Twitter yet. <a href=\"http://twitter.com?status=http://philipthrasher.com/2011/06/07/ubuntu-bitcoin-mining.html\">You could be the first</a>.",
+            location: "http://philipthrasher.com/2011/06/07/ubuntu-bitcoin-mining.html"
+        });
+    });
+</script>
+
+    </div>
+</body>
+</html>

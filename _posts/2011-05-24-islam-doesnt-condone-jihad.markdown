@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Islam Doesn't Preach or Condone Jihad
+hckrnws: http://news.ycombinator.com/item?id=2861788
 ---
 
 Firstly, before we go *any* further, I'm not a follower of islam. Now that we've got that settled, let's continue. The purpose for this post is to educate people. Most Americans have been force fed a lie. We have been told over and over by people we respect and appreciate, that Jihad is a core tenant of Islam. We've been told that regardless of what the "nice muslims" tell us, the Qur'an does in fact state that Jihad is necessary.

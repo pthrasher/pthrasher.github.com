@@ -21,6 +21,14 @@ layout: default
         <li><div id="boastful"></div></li>
     </ul>
 </div>
+{% if page.hckrnws %}
+<div id="related">
+  <h2>Commentary</h2>
+  <ul class="posts">
+      <li>Head over to the <a href="{{page.hckrnws}}">hacker news post</a> to discuss.</li>
+  </ul>
+</div>
+{% endif %}
 <div id="related">
   <h2>Related Posts</h2>
   <ul class="posts">

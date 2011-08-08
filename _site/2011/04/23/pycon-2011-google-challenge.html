@@ -80,21 +80,7 @@
 
 <p>97, 9000000000000000000000000000000000000000000000000 <br />98, 9000000000000000000000000000000000000000000000000 <br />99, 90000000000000000000000000000000000000000000000000</p>
 
-<p>Here&#8217;s the code:</p>
-<div class='highlight'><pre><code class='python'><span class='k'>def</span> <span class='nf'>googol</span><span class='p'>():</span>
-  <span class='c'># q = quantity to add each iteration</span>
-  <span class='c'># t = total</span>
-  <span class='n'>q</span> <span class='o'>=</span> <span class='n'>t</span> <span class='o'>=</span> <span class='mi'>9</span>
-  <span class='k'>for</span> <span class='n'>i</span> <span class='ow'>in</span> <span class='nb'>range</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>100</span><span class='p'>):</span>
-    <span class='c'>#if this is odd, lets multiply q*10... we&#39;re in a new range</span>
-    <span class='k'>if</span> <span class='ow'>not</span> <span class='n'>i</span><span class='o'>%</span><span class='mi'>2</span><span class='p'>:</span> <span class='n'>q</span> <span class='o'>*=</span> <span class='mi'>10</span>
-    <span class='c'>#add the new range&#39;s quantity to our total</span>
-    <span class='n'>t</span> <span class='o'>+=</span> <span class='n'>q</span>
-  <span class='c'># Return the total, then convert that into a</span>
-  <span class='c'># string so we can add all the individual digits together.</span>
-  <span class='k'>return</span> <span class='p'>(</span><span class='n'>t</span><span class='p'>,</span> <span class='nb'>sum</span><span class='p'>(</span><span class='nb'>map</span><span class='p'>(</span><span class='nb'>int</span><span class='p'>,</span><span class='nb'>str</span><span class='p'>(</span><span class='n'>t</span><span class='p'>))),)</span>
-</code></pre>
-</div></li>
+<p>Here&#8217;s the code:</p></li>
     </ul>
 	</div>
 	
@@ -106,6 +92,7 @@
         <li><div id="boastful"></div></li>
     </ul>
 </div>
+
 <div id="related">
   <h2>Related Posts</h2>
   <ul class="posts">
