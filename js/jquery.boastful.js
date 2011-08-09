@@ -10,7 +10,7 @@
                    }
     options = $.extend({}, defaults, options)
 
-    function format_tweetback(tweetback) {
+    function format_tweetback(tweetback, notip) {
       formatted  = ''
       formatted += '<div class="boastful">'
       formatted +=   '<a class="boastful_link" href="'+tweetback.permalink_url+'">'
@@ -18,7 +18,9 @@
       formatted +=   '</a>'
       formatted +=   '<div class="boastful_pointer"></div>'
       formatted +=   '<div class="boastful_tweet" style="display: none">'
-      formatted +=     '<div class="boastful_handle">@'+tweetback.author.url.split('/').pop()+'</div>'
+      if (typeof tweetback.author.url != 'undefined') {
+          formatted +=     '<div class="boastful_handle">@'+tweetback.author.url.split('/').pop()+'</div>'
+      }
       formatted +=     '<div class="boastful_content">'+tweetback.content+'</div>'
       formatted +=   '</div>'
       formatted += '</div>'
@@ -34,7 +36,15 @@
           }
           author_urls.push(tweetback.author.url)
           output.append(format_tweetback(tweetback))
-        })
+        });
+        var add_button = {
+            permalink_url: 'http://twitter.com?status='+ location.href,
+            author: {
+                photo_url: '/img/add.png'
+            },
+            content: 'Tweet what you think about this post!'
+        }
+        output.append(format_tweetback(add_button));
         $('.boastful').mouseover(function(){ $(this).children('.boastful_tweet, .boastful_pointer').show() })
         $('.boastful').mousemove(function(kmouse){
           $(this).children('.boastful_tweet').css({
