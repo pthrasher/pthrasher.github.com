@@ -78,13 +78,16 @@ strong {
 }
 #post h2 {
     font-weight:700;
-    font-size:19pt;
-    color:#444;
+    font-size:18pt;
+    color:#666;
 }
 #post p {
     color: #444;
 }
 
+#post img {
+    border: 3px solid #AAA;
+}
 .date {
     color:#666;
 }
