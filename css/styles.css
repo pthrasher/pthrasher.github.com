@@ -1,6 +1,6 @@
 body {
     font-family: 'IM Fell English', serif;
-    font-color: #333;
+    color: #333;
     font-size:12pt;
     margin:0 0 35px 0;
     padding:0;
@@ -101,4 +101,11 @@ strong {
 #totop:hover {
     text-decoration:none;
     opacity:1;
+}
+
+html.win body {
+    font-family: "Palatino Linotype", serif;
+}
+html.win a {
+    font-family: "Verdana", sans-serif;
 }

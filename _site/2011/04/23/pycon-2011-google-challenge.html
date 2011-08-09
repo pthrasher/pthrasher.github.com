@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
+
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Google Challenge from PyCon 2011</title>
-
-<!-- script type="text/javascript">
-/* <![CDATA[ */
-    (function() {
-        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-        t.parentNode.insertBefore(s, t);
-    })();
-/* ]]> */
-</script -->
 
     <!-- syntax highlighting CSS -->
     <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
@@ -31,6 +20,7 @@
     <script type="text/javascript" src="/js/jquery.tipsy.js"></script>
     <script type="text/javascript" src="/js/jquery.boastful.js"></script>
     <link rel="stylesheet" href="/css/boastful.css" type="text/css" media="screen" charset="utf-8">
+    <script type="text/javascript" src="/js/css_browser_selector.js"></script>
 </head>
 <body>
     <div class="site">
@@ -80,7 +70,21 @@
 
 <p>97, 9000000000000000000000000000000000000000000000000 <br />98, 9000000000000000000000000000000000000000000000000 <br />99, 90000000000000000000000000000000000000000000000000</p>
 
-<p>Here&#8217;s the code:</p></li>
+<p>Here&#8217;s the code:</p>
+<div class='highlight'><pre><code class='python'><span class='k'>def</span> <span class='nf'>googol</span><span class='p'>():</span>
+  <span class='c'># q = quantity to add each iteration</span>
+  <span class='c'># t = total</span>
+  <span class='n'>q</span> <span class='o'>=</span> <span class='n'>t</span> <span class='o'>=</span> <span class='mi'>9</span>
+  <span class='k'>for</span> <span class='n'>i</span> <span class='ow'>in</span> <span class='nb'>range</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>100</span><span class='p'>):</span>
+    <span class='c'>#if this is odd, lets multiply q*10... we&#39;re in a new range</span>
+    <span class='k'>if</span> <span class='ow'>not</span> <span class='n'>i</span><span class='o'>%</span><span class='mi'>2</span><span class='p'>:</span> <span class='n'>q</span> <span class='o'>*=</span> <span class='mi'>10</span>
+    <span class='c'>#add the new range&#39;s quantity to our total</span>
+    <span class='n'>t</span> <span class='o'>+=</span> <span class='n'>q</span>
+  <span class='c'># Return the total, then convert that into a</span>
+  <span class='c'># string so we can add all the individual digits together.</span>
+  <span class='k'>return</span> <span class='p'>(</span><span class='n'>t</span><span class='p'>,</span> <span class='nb'>sum</span><span class='p'>(</span><span class='nb'>map</span><span class='p'>(</span><span class='nb'>int</span><span class='p'>,</span><span class='nb'>str</span><span class='p'>(</span><span class='n'>t</span><span class='p'>))),)</span>
+</code></pre>
+</div></li>
     </ul>
 	</div>
 	

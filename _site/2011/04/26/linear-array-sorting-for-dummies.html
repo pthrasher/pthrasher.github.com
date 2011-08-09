@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
+
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Linear Array Sorting for Dummies</title>
-
-<!-- script type="text/javascript">
-/* <![CDATA[ */
-    (function() {
-        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-        t.parentNode.insertBefore(s, t);
-    })();
-/* ]]> */
-</script -->
 
     <!-- syntax highlighting CSS -->
     <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
@@ -31,6 +20,7 @@
     <script type="text/javascript" src="/js/jquery.tipsy.js"></script>
     <script type="text/javascript" src="/js/jquery.boastful.js"></script>
     <link rel="stylesheet" href="/css/boastful.css" type="text/css" media="screen" charset="utf-8">
+    <script type="text/javascript" src="/js/css_browser_selector.js"></script>
 </head>
 <body>
     <div class="site">
@@ -62,7 +52,23 @@
 
 <p>It&#8217;s a pretty neat exercise. My first response to him was the quadratic time idea. Since this was a simple problem, I wasn&#8217;t trying to think of any advanced method to solve it. It wasn&#8217;t like it needed to scale. It just needed to work. But this taught me an important lesson about Google. Everything&#8230; no matter how innocuous, needs to be able to scale.</p>
 
-<p>Here&#8217;s the code:</p></li>
+<p>Here&#8217;s the code:</p>
+<div class='highlight'><pre><code class='python'><span class='k'>def</span> <span class='nf'>partition</span><span class='p'>(</span><span class='n'>to_partition</span><span class='p'>):</span>
+    <span class='n'>first_odd</span> <span class='o'>=</span> <span class='mi'>0</span>
+    <span class='k'>for</span> <span class='n'>a</span> <span class='ow'>in</span> <span class='nb'>range</span><span class='p'>(</span><span class='nb'>len</span><span class='p'>(</span><span class='n'>to_partition</span><span class='p'>)):</span>
+        <span class='k'>if</span> <span class='ow'>not</span> <span class='n'>to_partition</span><span class='p'>[</span><span class='n'>a</span><span class='p'>]</span> <span class='o'>%</span> <span class='mi'>2</span> <span class='ow'>and</span> <span class='n'>a</span> <span class='o'>&gt;</span> <span class='n'>first_odd</span><span class='p'>:</span>
+            <span class='n'>to_partition</span><span class='p'>[</span><span class='n'>a</span><span class='p'>],</span> <span class='n'>to_partition</span><span class='p'>[</span><span class='n'>first_odd</span><span class='p'>]</span> <span class='o'>=</span>  <span class='n'>to_partition</span><span class='p'>[</span><span class='n'>first_odd</span><span class='p'>],</span> <span class='n'>to_partition</span><span class='p'>[</span><span class='n'>a</span><span class='p'>]</span>
+            <span class='n'>first_odd</span> <span class='o'>+=</span> <span class='mi'>1</span>
+    <span class='k'>return</span> <span class='n'>to_partition</span>
+
+<span class='kn'>import</span> <span class='nn'>random</span>
+<span class='n'>mylst</span> <span class='o'>=</span> <span class='p'>[</span><span class='n'>random</span><span class='o'>.</span><span class='n'>randint</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>1000</span><span class='p'>)</span> <span class='k'>for</span> <span class='n'>i</span> <span class='ow'>in</span> <span class='nb'>range</span><span class='p'>(</span><span class='mi'>20</span><span class='p'>)]</span>
+<span class='k'>print</span> <span class='n'>mylst</span>
+<span class='c'># =&gt; [816, 229, 645, 194, 423, 480, 242, 307, 254, 587, 694, 437, 465, 390, 970, 926, 910, 66, 447, 654]</span>
+<span class='k'>print</span> <span class='n'>partition</span><span class='p'>(</span><span class='n'>mylst</span><span class='p'>)</span>
+<span class='c'># =&gt; [194, 480, 242, 254, 816, 694, 390, 970, 926, 910, 66, 654, 437, 465, 229, 645, 307, 587, 447, 423]</span>
+</code></pre>
+</div></li>
     </ul>
 	</div>
 	

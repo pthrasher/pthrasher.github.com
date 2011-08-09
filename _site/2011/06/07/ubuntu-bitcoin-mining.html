@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
+
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Ubuntu 11.04 Natty 64bit Headless Bitcoin mining 11.5 ATI driver and 2.1 SDK</title>
-
-<!-- script type="text/javascript">
-/* <![CDATA[ */
-    (function() {
-        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-        t.parentNode.insertBefore(s, t);
-    })();
-/* ]]> */
-</script -->
 
     <!-- syntax highlighting CSS -->
     <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
@@ -31,6 +20,7 @@
     <script type="text/javascript" src="/js/jquery.tipsy.js"></script>
     <script type="text/javascript" src="/js/jquery.boastful.js"></script>
     <link rel="stylesheet" href="/css/boastful.css" type="text/css" media="screen" charset="utf-8">
+    <script type="text/javascript" src="/js/css_browser_selector.js"></script>
 </head>
 <body>
     <div class="site">
@@ -57,35 +47,136 @@
 <p>Please consider throwing me some money if this helps you make any. :-) 1GAAZKQh1cHqCR5GWkghRYzXtr21C9ZbaG</p>
 
 <p>Load a fresh Ubuntu Natty 11.04 64-bit Desktop with the latest updates and log into system with a user that has sudo permissions.</p>
-
+<div class='highlight'><pre><code class='bash'>sudo apt-get remove nvidia-common
+sudo apt-get install libqtgui4
+</code></pre>
+</div>
 <p>Download and install ATI Driver 11.5 for Linux 64bit. (alternate 10.11 instructions below)</p>
-
+<div class='highlight'><pre><code class='bash'><span class='nb'>cd</span> ~
+wget http://www2.ati.com/drivers/linux/ati-driver-installer-11-5-x86.x86_64.run
+sudo sh ati-driver-installer-11-5-x86.x86_64.run --buildpkg Ubuntu/natty
+sudo dpkg -i *.deb
+sudo apt-get -f install
+sudo aticonfig -f --initial --adapter<span class='o'>=</span>all
+sudo reboot
+</code></pre>
+</div>
 <p>Alternatively, you may wish to download and install ATI Driver 10.11: (this is currently untested, but should work. If it does, please let me know in the comments.)</p>
-
+<div class='highlight'><pre><code class='bash'><span class='nb'>cd</span> ~
+wget http://dl.dropbox.com/u/4730227/ati-driver-installer-10-11-x86.x86_64.run
+sudo sh ati-driver-installer-10-11-x86.x86_64.run --buildpkg Ubuntu/natty
+sudo dpkg -i *.deb
+sudo apt-get -f install
+sudo aticonfig -f --initial --adapter<span class='o'>=</span>all
+sudo reboot
+</code></pre>
+</div>
 <p>Verify that the ATI Driver is setup and running (disclaimer&#8230; this never worked for me)</p>
-
+<div class='highlight'><pre><code class='bash'><span class='nb'>cd</span> ~
+<span class='nv'>DISPLAY</span><span class='o'>=</span>:0 sudo fglrxinfo
+</code></pre>
+</div>
 <p>Download and install AMD APP SDK 2.1 for Linux 64bit.</p>
-
+<div class='highlight'><pre><code class='bash'><span class='nb'>cd</span> ~
+wget http://download2-developer.amd.com/amd/Stream20GA/ati-stream-sdk-v2.1-lnx64.tgz
+tar xvzf ati-stream-sdk-v2.1-lnx64.tgz
+<span class='nb'>echo export </span><span class='nv'>AMDAPPSDKROOT</span><span class='o'>=</span><span class='k'>${</span><span class='nv'>HOME</span><span class='k'>}</span>/ati-stream-sdk-v2.1-lnx64/ &gt;&gt; ~/.bashrc
+<span class='nb'>echo export </span><span class='nv'>AMDAPPSDKSAMPLESROOT</span><span class='o'>=</span><span class='k'>${</span><span class='nv'>HOME</span><span class='k'>}</span>/ati-stream-sdk-v2.1-lnx64/ &gt;&gt; ~/.bashrc
+<span class='nb'>echo</span> <span class='s1'>&#39;export LD_LIBRARY_PATH=${AMDAPPSDKROOT}lib/x86_64:${LD_LIBRARY_PATH}&#39;</span> &gt;&gt; ~/.bashrc
+<span class='nb'>source</span> ~/.bashrc
+<span class='nb'>cd</span> <span class='nv'>$AMDAPPSDKROOT</span>
+wget http://download2-developer.amd.com/amd/Stream20GA/icd-registration.tgz
+<span class='nb'>cd</span> /
+sudo tar xfz <span class='nv'>$AMDAPPSDKROOT</span>/icd-registration.tgz
+</code></pre>
+</div>
 <p>Download and install Diablo Miner (I&#8217;ve had the best mhash&#8217;s by far with diablo on 2.1)</p>
-
+<div class='highlight'><pre><code class='bash'><span class='nb'>cd</span> ~
+wget http://adterrasperaspera.com/images/DiabloMiner.zip
+unzip DiabloMiner.zip
+</code></pre>
+</div>
 <p>Create a startminer script using code from below. Make sure to substitute the correct home directory path, miner pool server, miner user and miner password.</p>
 
 <p>I had 4 cards in my computer, so I created 4 scripts&#8230; Adjust for your own setup.</p>
-
+<div class='highlight'><pre><code class='bash'><span class='nb'>cd</span> ~
+sudo touch /usr/local/bin/startminer.sh
+sudo chmod 755 /usr/local/bin/startminer.sh
+sudo vi /usr/local/bin/startminer.sh
+</code></pre>
+</div>
 <p>Paste the following in:</p>
+<div class='highlight'><pre><code class='bash'><span class='c'># ${1} is used as a variable for the username, password and for the gpu device number.  Ex. mineruser0, minerpass0, Device=0 or mineruser1, minerpass1, Device=1</span>
+<span class='nv'>HOMEDIR</span><span class='o'>=</span>/home/user
+<span class='nv'>MINERSERV</span><span class='o'>=</span>mining.eligius.st
+<span class='nv'>MINERPORT</span><span class='o'>=</span>8337
+<span class='nv'>MINERUSER</span><span class='o'>=</span>mybitcoinaddress
+<span class='nv'>MINERPASS</span><span class='o'>=</span>arbitrarypassword
 
+<span class='nb'>export </span><span class='nv'>AMDAPPSDKROOT</span><span class='o'>=</span><span class='k'>${</span><span class='nv'>HOMEDIR</span><span class='k'>}</span>/ati-stream-sdk-v2.1-lnx64/
+<span class='nb'>export </span><span class='nv'>AMDAPPSDKSAMPLESROOT</span><span class='o'>=</span><span class='k'>${</span><span class='nv'>HOMEDIR</span><span class='k'>}</span>/ati-stream-sdk-v2.1-lnx64/
+<span class='nb'>export </span><span class='nv'>LD_LIBRARY_PATH</span><span class='o'>=</span><span class='k'>${</span><span class='nv'>AMDAPPSDKROOT</span><span class='k'>}</span>lib/x86_64:<span class='k'>${</span><span class='nv'>LD_LIBRARY_PATH</span><span class='k'>}</span>
+
+<span class='c'>#Overclock GPU to 875Mhz</span>
+<span class='nv'>DISPLAY</span><span class='o'>=</span>:0 aticonfig --od-enable --adapter<span class='o'>=</span>all
+<span class='nv'>DISPLAY</span><span class='o'>=</span>:0 aticonfig --od-setclocks<span class='o'>=</span>875,1000 --adapter<span class='o'>=</span><span class='k'>${</span><span class='nv'>1</span><span class='k'>}</span>
+<span class='nb'>cd</span> <span class='k'>${</span><span class='nv'>HOMEDIR</span><span class='k'>}</span>/DiabloMiner
+<span class='nb'>echo</span> <span class='s2'>&quot;Startming Miner: ${1}&quot;</span>
+
+<span class='nv'>DISPLAY</span><span class='o'>=</span>:0 <span class='k'>${</span><span class='nv'>HOMEDIR</span><span class='k'>}</span>/DiabloMiner/DiabloMiner-Linux.sh -u <span class='k'>${</span><span class='nv'>MINERUSER</span><span class='k'>}</span> -p <span class='k'>${</span><span class='nv'>MINERPASS</span><span class='k'>}</span> -l <span class='k'>${</span><span class='nv'>MINERSERV</span><span class='k'>}</span> -r <span class='k'>${</span><span class='nv'>MINERPORT</span><span class='k'>}</span> -D <span class='k'>${</span><span class='nv'>1</span><span class='k'>}</span> -v 2 -w 256
+</code></pre>
+</div>
 <p>Setup Headless Bitcoin Mining *** Warning *** This will stop your computer from booting a graphical desktop and allow only text console or remote ssh access into the mining server. If you rely on a GUI for administration you may want to rethink this.</p>
-
+<div class='highlight'><pre><code class='bash'>sudo apt-get install openssh-server
+sudo apt-get install screen
+sudo mv /etc/init/gdm.conf /etc/init/gdm.org
+sudo vi /etc/init/startx.conf
+</code></pre>
+</div>
 <p>Paste the following in:</p>
-
+<div class='highlight'><pre><code class='bash'>description     <span class='s2'>&quot;Start X Server for btc mining&quot;</span>
+start on runlevel <span class='o'>[</span>2345<span class='o'>]</span>
+stop on runlevel <span class='o'>[</span>!2345<span class='o'>]</span>
+<span class='nb'>kill </span>timeout 30
+script
+   <span class='nb'>exec</span> /usr/bin/X 2&gt;&amp;1
+end script
+</code></pre>
+</div>
 <p>Then do:</p>
-
+<div class='highlight'><pre><code class='bash'>   sudo vi /etc/init/btcminer_0.conf
+</code></pre>
+</div>
 <p>Paste the following in:</p>
-
+<div class='highlight'><pre><code class='bash'>description     <span class='s2'>&quot;Start BTC Mining&quot;</span>
+start on runlevel <span class='o'>[</span>2345<span class='o'>]</span>
+stop on runlevel <span class='o'>[</span>!2345<span class='o'>]</span>
+<span class='nb'>kill </span>timeout 30
+script
+   <span class='nv'>LOGINUSER</span><span class='o'>=</span>ChangeToMyLoginUser
+  <span class='c'>#Wait 30 seconds to make sure X is started.</span>
+  sleep 30
+  <span class='nb'>exec</span> /usr/bin/screen -dmS gpu0 su -c <span class='s1'>&#39;/usr/local/bin/startminer.sh 0&#39;</span> <span class='k'>${</span><span class='nv'>LOGINUSER</span><span class='k'>}</span>
+end script
+</code></pre>
+</div>
 <p>Then do:</p>
-
+<div class='highlight'><pre><code class='bash'>   sudo vi /etc/init/btcminer_1.conf
+</code></pre>
+</div>
 <p>Paste the following in:</p>
-
+<div class='highlight'><pre><code class='bash'>description     <span class='s2'>&quot;Start BTC Mining&quot;</span>
+start on runlevel <span class='o'>[</span>2345<span class='o'>]</span>
+stop on runlevel <span class='o'>[</span>!2345<span class='o'>]</span>
+<span class='nb'>kill </span>timeout 30
+script
+<span class='nv'>LOGINUSER</span><span class='o'>=</span>ChangeToMyLoginUser
+<span class='c'>#Wait 35 seconds to make sure X is started.</span>
+sleep 35
+   <span class='nb'>exec</span> /usr/bin/screen -dmS gpu1 su -c <span class='s1'>&#39;/usr/local/bin/startminer.sh 1&#39;</span> <span class='k'>${</span><span class='nv'>LOGINUSER</span><span class='k'>}</span>
+end script
+</code></pre>
+</div>
 <p>How to access the miner server</p>
 
 <p>ssh into the mining server as your normal login user. <code>sudo screen -r gpu0</code> or <code>sudo screen -r gpu1</code></p>
@@ -97,12 +188,41 @@
 <p>ssh into mining server as your normal login user. <code>DISPLAY=:0 sudo aticonfig --odgt --adapter=all</code></p>
 
 <p>How to monitor your screens on an Xterminal on the main Xwindows console on boot up.</p>
-
+<div class='highlight'><pre><code class='bash'>sudo vi /etc/init/btcmonitor_0.conf
+</code></pre>
+</div>
 <p>Paste the following in:</p>
-
+<div class='highlight'><pre><code class='bash'>description     <span class='s2'>&quot;Start BTC Monitor 0&quot;</span>
+start on runlevel <span class='o'>[</span>2345<span class='o'>]</span>
+stop on runlevel <span class='o'>[</span>!2345<span class='o'>]</span>
+<span class='nb'>kill </span>timeout 30
+script
+  <span class='nv'>LOGINUSER</span><span class='o'>=</span>ChangeToMyLoginUser
+  <span class='nb'>export </span><span class='nv'>DISPLAY</span><span class='o'>=</span>:0
+  <span class='c'>#Wait 40 seconds to make sure X is started.</span>
+  sleep 40
+  <span class='nb'>exec</span>  /usr/bin/xterm -geometry 80x40+0+0 -e <span class='s2'>&quot;/usr/bin/screen -d -r gpu0&quot;</span>
+end script
+</code></pre>
+</div>
 <p>Then do:</p>
-
-<p>Paste the following in:</p></li>
+<div class='highlight'><pre><code class='bash'>sudo vi /etc/init/btcmonitor_1.conf
+</code></pre>
+</div>
+<p>Paste the following in:</p>
+<div class='highlight'><pre><code class='bash'>description     <span class='s2'>&quot;Start BTC Monitor 1&quot;</span>
+start on runlevel <span class='o'>[</span>2345<span class='o'>]</span>
+stop on runlevel <span class='o'>[</span>!2345<span class='o'>]</span>
+<span class='nb'>kill </span>timeout 30
+script
+  <span class='nv'>LOGINUSER</span><span class='o'>=</span>ChangeToMyLoginUser
+  <span class='nb'>export </span><span class='nv'>DISPLAY</span><span class='o'>=</span>:0
+  <span class='c'>#Wait 45 seconds to make sure X is started.</span>
+  sleep 45
+  <span class='nb'>exec</span>  /usr/bin/xterm -geometry 80x40+500+0 -e <span class='s2'>&quot;/usr/bin/screen -d -r gpu1&quot;</span>
+end script
+</code></pre>
+</div></li>
     </ul>
 	</div>
 	
