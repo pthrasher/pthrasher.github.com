@@ -93,12 +93,12 @@ strong {
     color:#666;
 }
 blockquote {
-    margin:10px 0 10px 10px;
+    margin:10px 40px;
+    border-left: 3px solid #888;
 }
 blockquote p {
     font-style:italic;
-    color:#666;
-    font-size: 13pt;
+    color:#888;
 }
 
 html.win body {
