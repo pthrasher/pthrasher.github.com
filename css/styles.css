@@ -92,14 +92,14 @@ strong {
 .date {
     color:#666;
 }
-blockquote {
+#post blockquote {
     margin:10px 40px;
-    border-left: 3px solid #888;
+    border-left: 3px solid #BBB;
 }
-blockquote p {
+#post blockquote p {
     font-style:italic;
-    padding-left:5px;
-    color:#888;
+    padding-left:10px;
+    color:#869;
 }
 
 html.win body {
