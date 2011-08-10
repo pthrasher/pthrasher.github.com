@@ -83,6 +83,7 @@ strong {
 }
 #post p {
     color: #444;
+    text-align:justify;
 }
 
 #post img {

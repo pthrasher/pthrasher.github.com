@@ -26,6 +26,6 @@ Now, regardless of these two verses, it seems there are evil people in the world
 
 People always say you can't judge a religion by its followers. Well... if you can't judge it by the followers, what can you judge it by? If a tree never bears fruit, I'm going to believe nothing good will come of that tree, and cut it down -- it's wasting space that could be filled by something better.
 
-Islam is not inherently evil (aside from not being christianity) as is suggested by many. It's the people, and no matter the religion, belief etc... Evil people are born every day. So long as we have people, we will have bad things happening to good people. It's just the way it is.
+Islam is not inherently evil, as is suggested by many. It's the people, and no matter the religion, belief etc... Evil people are born every day. So long as we have people, we will have bad things happening to good people. It's just the way it is.
 
 Now can we stop having holy wars, hating others just for their beliefs, and just live in peace?
