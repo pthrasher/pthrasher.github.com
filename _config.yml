@@ -1,5 +1,4 @@
 pygments: true
 exclude: [newpost.py]
 auto: true
-permalink: pretty
 lsi: true
