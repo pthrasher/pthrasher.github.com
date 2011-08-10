@@ -1,4 +1,5 @@
 pygments: true
+server: true
 exclude: [newpost.py]
 auto: true
 lsi: true
