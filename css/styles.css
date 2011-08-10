@@ -92,6 +92,14 @@ strong {
 .date {
     color:#666;
 }
+blockquote {
+    margin:10px 0 10px 10px;
+}
+blockquote p {
+    font-style:italic;
+    color:#666;
+    font-size: 13pt;
+}
 
 html.win body {
     font-family: "Palatino Linotype", serif;
