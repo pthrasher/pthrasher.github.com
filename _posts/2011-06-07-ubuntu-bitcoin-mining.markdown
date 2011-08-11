@@ -2,6 +2,7 @@
 layout: post
 title: Ubuntu 11.04 Natty 64bit Headless Bitcoin mining 11.5 ATI driver and 2.1 SDK
 published: true
+hckrnws: http://news.ycombinator.com/item?id=2872985
 ---
 
 Hello, here's a guide on how to setup a bitcoin miner using linux, and the 2.1 SDK. 2.1 being favorable over 2.4 for some cards. I stole 99% of this from [here](http://forum.bitcoin.org/index.php?topic=9239.0)
