@@ -14,7 +14,11 @@ body {
 
 #over {
     margin-bottom: 15px;
-    margin-top:5px;
+    margin-top:3px;
+}
+
+#over a {
+    margin-top:-1px;
 }
 
 h1, h2 {
@@ -53,6 +57,7 @@ a {
 
 a:hover {
     background: #ffac00;
+    font-weight:700;
     color: #333;
     /*text-decoration:underline;*/
 }
