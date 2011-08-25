@@ -14,4 +14,5 @@ published: true
 >that we should blame men for dying in
 >adventure? Is there a better way to
 >die?
+>
 >-- Charles Lindbergh
