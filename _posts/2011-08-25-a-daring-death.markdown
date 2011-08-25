@@ -5,7 +5,7 @@ published: true
 ---
 
 
-{% highlight shell %}
+{% highlight bash %}
  _________________________________________ 
 / Any coward can sit in his home and      \
 | criticize a pilot for flying into a     |
