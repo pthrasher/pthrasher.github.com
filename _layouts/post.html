@@ -6,19 +6,13 @@ layout: default
 </div>
 <div class="row">
 <div class="span12 columns offset2">
+    <h1>{{ page.title }} <small>{{ page.date | date_to_string }}</small></h1>
     <div id="post">
-        <h1>{{ page.title }} <small>{{ page.date | date_to_string }}</small></h1>
-        </span><!-- a class="FlattrButton" style="display:none;" rev="flattr;button:compact;"
-        href="http://pthrasher.github.com"></a -->
         {% if page.via %}
-            <div>
                 {{ content }}
-            </div>
             <p class='meta'>(via <a href='{{ page.viaurl }}'>{{ page.via }}</a>)</p>
         {% else %}
-            <div>
                 {{ content }}
-            </div>
         {% endif %}
     </div>
 
