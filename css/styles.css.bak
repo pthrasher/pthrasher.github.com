@@ -1,0 +1,137 @@
+
+
+
+body {
+    color: #333;
+    font-family: 'Georgia', serif;
+    font-size:12pt;
+    letter-spacing: 1px;
+    line-height:155%;
+    margin:0 0 35px 0;
+    padding:0;
+}
+
+#home, .footer, #over {
+    margin-left:10px;
+}
+
+#over {
+    margin-bottom: 15px;
+    margin-top:3px;
+}
+
+#over a {
+    margin-top:-1px;
+}
+
+h1, h2 {
+    font-family: 'Marvel', sans-serif;
+    font-size:16pt;
+    font-weight:700;
+    font-weight:bold;
+}
+
+
+ul {
+    list-style: none;
+    margin: 0 0 50px 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+li span {
+    color: #333;
+    font-size:13px;
+    font-family: "Courier New", monospace;
+    letter-spacing:0px;
+}
+
+a {
+    background: #333;
+    color: #FFF;
+    font-family: 'Marvel', sans-serif;
+    margin:2px;
+    letter-spacing:2px;
+    padding:5px;
+    text-decoration:none;
+ }
+
+a:hover {
+    background: #ffac00;
+    font-weight:700;
+    color: #333;
+    /*text-decoration:underline;*/
+}
+
+a.boastful_link {
+    background: transparent;
+}
+
+#comments, #post, #related {
+    width: 800px;
+    margin-left:10px;
+}
+.highlight {
+    background-color: #002B36;
+    color:#839496;
+    font-size:11pt;
+    overflow:auto;
+    padding:5px;
+}
+strong {
+    font-weight:700;
+}
+
+#post h1 {
+    font-size:30px;
+    display:inline;
+}
+#post h2 {
+    color:#666;
+    font-size:18pt;
+    font-weight:700;
+}
+#post p {
+    color: #444;
+    text-align:justify;
+}
+
+#post img {
+    border: 3px solid #AAA;
+}
+.date {
+    font-size:12px;
+    color:#666;
+}
+#post blockquote {
+    margin:10px 40px;
+    border-left: 3px solid #BBB;
+}
+#post blockquote p {
+    font-style:italic;
+    padding-left:10px;
+    color:#869;
+}
+
+html.win body {
+    font-family: "Georgia", serif;
+    font-size:12pt;
+    letter-spacing:0px;
+}
+html.win a {
+    font-family: "Verdana", sans-serif;
+    font-size:11pt;
+}
+html.win h1,html.win h2 {
+    font-family: "Verdana", sans-serif;
+    font-size:15pt;
+    font-weight:normal;
+    letter-spacing:0px;
+}
+html.win #post h2 {
+    color:#666;
+    font-size:16pt;
+    font-weight:normal;
+}

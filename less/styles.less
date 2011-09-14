@@ -1,0 +1,116 @@
+@import "bootstrap/bootstrap.less";
+
+@light_blue: #66CCFF;
+@light_grey: #F5F5F5;
+@dark_grey: #797979;
+
+body {
+    padding-top:40px;
+}
+
+span#logo {
+    padding-top:12px;
+    color:#333;
+    
+    text-transform:uppercase;
+    float:left;
+
+    font-family:"arial narrow";
+    font-size:21px;
+    letter-spacing:1px;
+}
+
+div.blog-nav a {
+    background-color:@light_grey;
+    background-repeat: no-repeat;
+    background-position: 5px center;
+
+    width:146px;
+
+    display:block;
+    float:right;
+
+    padding: 10px 5px 10px 34px;
+    margin-left:10px;
+
+    #font.sans-serif(normal, 12px);
+    color: @dark_grey;
+
+    &.page {
+        color: @light_grey;
+        width:102px;
+        padding: 10px 5px;
+        text-transform:capitalize;
+        
+        background:@dark_grey;
+        &:hover {
+            background-color: darken(@light_blue, 30%);
+        }
+    }
+
+    &.twitter {
+        background-image: url(/img/picons03.png);
+    }
+    &.youtube {
+        background-image: url(/img/picons18.png);
+    }
+    &.github {
+        background-image: url(/img/picons30.png);
+    }
+
+    &:hover {
+        color: white;
+        background-color:@light_blue;
+        text-decoration:none;
+    }
+}
+
+div.homepage h3 {
+    text-transform:uppercase;
+    font-family:"arial narrow";
+    letter-spacing:1px;
+    font-weight:normal;
+}
+
+div.spacer {
+    height:25px;
+}
+
+div.post-title {
+    
+    a {
+
+        background:@light_grey;
+        color: @dark_grey;
+
+        width:565px;
+
+        display:block;
+
+        padding: 10px 5px;
+        margin-bottom:5px;
+
+        #font.sans-serif(normal, 12px);
+
+        &:hover {
+            color: white;
+            background:@light_blue;
+            text-decoration:none;
+        }
+    }
+}
+div.post-date {
+    span {
+        padding: 10px 5px;
+        display:block;
+        text-transform:capitalize;
+
+        #font.monospace(normal 12px);
+    }
+}
+
+div#post {
+    p {
+        #font.serif(normal, 15px);
+    }
+}
