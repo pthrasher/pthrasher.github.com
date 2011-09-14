@@ -35,7 +35,7 @@ layout: default
     </div>
     {% endif %}
     <div id="related">
-      <h2>Related Posts</h2>
+      <h2>Read More of My Stuff</h2>
         {% for post in site.related_posts limit:3 %}
         <ul class="unstyled">
           <li><span>{{ post.date | date_to_string }}</span> <a href="{{ post.url }}">{{ post.title }}</a></li>
