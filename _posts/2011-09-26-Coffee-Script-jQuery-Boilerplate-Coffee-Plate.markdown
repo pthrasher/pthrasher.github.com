@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Coffee Script jQuery Boilerplate: Coffee-Plate
+title: Coffee Script jQuery Boilerplate
 ---
 
 I was looking around on the web the other day for a jQuery plugin
