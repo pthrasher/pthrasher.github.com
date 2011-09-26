@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Coffee Script jQuery Boilerplate
+hckrnws: 'http://news.ycombinator.com/item?id=3040104'
 ---
 
 I was looking around on the web the other day for a jQuery plugin
