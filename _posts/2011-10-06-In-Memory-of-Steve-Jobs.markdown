@@ -27,11 +27,11 @@ apparent what all the fuss was about. It wasn't that people were
 just rooting for an underdog. It wasn't that people were just crazy
 hipsters eating the pizza before it was cool.
   
-No. It was more. It was becuase Steve, and his colleages *cared* about
-every last detail of anything they shipped. They *loved* the product
+No. It was more. It was becuase Steve, and his colleages **cared** about
+every last detail of anything they shipped. They **loved** the product
 and wanted it to be the best computer on the planet. That love was
 passed from their products onto their users. When you care about
-something in this way, *it shows*
+something in this way, **it shows**
   
 When you sit down in front of an Apple product, you know it was made by
 someone who had you in mind when designing it. Becuase they thought
@@ -58,7 +58,7 @@ success the most.
 >to earn the appreciation of honest critics and endure the betrayal of false friends;
 >to appreciate beauty; to find the best in others;
 >to leave the world a bit better whether by a healthy child, a garden patch, or a redeemed social condition;
->*to know even one life has breathed easier because you have lived.* This is to have succeeded.
+>**to know even one life has breathed easier because you have lived.** This is to have succeeded.
 > -- Emerson
   
 Steve imprinted himself into everything he did. He contantly pushed
