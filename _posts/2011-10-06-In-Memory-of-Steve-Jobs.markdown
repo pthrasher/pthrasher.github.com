@@ -66,4 +66,12 @@ himself, and anyone around him to do better and better and better.
 People were cool with this becuase he held himself to the same
 standard. He was a mentor to us all.
   
+  
+  
+  
 Steve, thanks for everything man.
+  
+  
+  
+  
+>"Don't be sad because it's over. Smile because it happened." -- Dr. Seuss
