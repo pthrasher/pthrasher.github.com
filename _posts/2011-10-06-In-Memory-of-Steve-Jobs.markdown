@@ -3,20 +3,22 @@ title: In Memory of Steve Jobs
 layout: post
 ---
 
-I was first introduced to Steve, and Apple in 2005 when I bought my
+I was introduced to Steve, and Apple in 2005 when I bought my
 first Macintosh.
   
 It was a first gen Mac Mini. -- I was immediately in love.
   
 I used to make fun of the smug fanboys, who seemed like control
-freaks. In fact, it always seems off putting, that all these people
+freaks. In fact, it always seemed a bit off putting, that all these people
 wouldn't just leave me alone, and let me use my linux box in peace. They
 would always be there proclaiming, and sometimes in the most tactful
 ways "You need to buy a mac. That is the only good computer in
 existance."
   
 I distincly remember their sales pitch being "too good." -- They had
-learned from the best. Though, even this was off putting. It was still a
+learned from the best.
+  
+Though, even this was off putting. It was still a
 sales pitch, and so it was easy to write people off as just fanboys.
 Afterall, how could just a computer actually be worth evangelizing?
   
@@ -42,21 +44,22 @@ great stuff that people couldn't ignore. The successful business was a
 side effect.
   
 Steve always wanted to make great products. I don't think anyone will
-doubt that he accomplished that many times over. Steve would say
-the products themselves weren't revolutionary. I tend to agree. It
-goes beyond the products. The thinking, the caring, the passion that
+disagree that he accomplished that many times over. Steve would say
+the products themselves weren't revolutionary, and I tend to agree. It
+goes beyond the products. It's the thinking, the caring, and the passion that
 went into them. That's what's revolutionary.
   
 For anyone who may wonder what was so special... How he could have
 touched anyone's life, I think it can be explained simply by saying he
-was successful at life. Now, how do we define success?
+was profoundly successful. I think I like Emerson's definition of
+success the most.
 ..
 >to laugh often and much, to win respect of intelligent people and the affection of children;
 >to earn the appreciation of honest critics and endure the betrayal of false friends;
 >to appreciate beauty; to find the best in others;
 >to leave the world a bit better whether by a healthy child, a garden patch, or a redeemed social condition;
 >*to know even one life has breathed easier because you have lived.* This is to have succeeded.
->- emerson
+> -- Emerson
   
 Steve imprinted himself into everything he did. He contantly pushed
 himself, and anyone around him to do better and better and better.
