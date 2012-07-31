@@ -1,136 +1,126 @@
-@import "bootstrap/bootstrap.less";
+@import 'GGS';
+@import 'mixins';
 
-@light_blue: #66CCFF;
-@light_grey: #F5F5F5;
-@dark_grey: #797979;
+@backgroundColor:  hsl(40, 30%, 98%);
+@fontFamily:       'Georgia', 'Baskerville', 'Times New Roman', 'Serif';
+@proseColor:       hsl(22, 21%, 22%);
+@headingColor:     hsl(22, 21%, 32%);
+@black:            #333;
+@white:            #FFF;
 
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Main layout components
 body {
-    padding-top:40px;
+    font-family: @fontFamily;
+    padding: 0 0 50px 0;
+    margin: 0;
+    background: @backgroundColor;
 }
 
-span#logo {
-    padding-top:12px;
-    color:#333;
-    
-    text-transform:uppercase;
-    float:left;
-
-    font-family:"arial narrow";
-    font-size:21px;
-    letter-spacing:1px;
+p {
+    line-height: 1.55em;
+    font-size: 1.4em;
+    color: @proseColor;
+    margin-bottom: 5px;
 }
 
-div.blog-nav a {
-    background-color:@light_grey;
-    background-repeat: no-repeat;
-    background-position: 5px center;
+.headingDefaults {
+    color: hsl(22, 21%, 32%);
+    margin: .2em 0 .4em 0;
 
-    width:157px;
-
-    display:block;
-    float:right;
-
-    padding: 10px 5px 10px 34px;
-    margin-left:10px;
-
-    #font.sans-serif(normal, 12px);
-    color: @dark_grey;
-
-    &.page {
-        color: @light_grey;
-        width:90px;
-        padding: 10px 5px;
-        text-transform:capitalize;
-        
-        background:@dark_grey;
-        &:hover {
-            background-color: darken(@light_blue, 30%);
-        }
-    }
-
-    &.twitter {
-        background-image: url(/img/picons03.png);
-    }
-    &.youtube {
-        background-image: url(/img/picons18.png);
-    }
-    &.forrst {
-        background-image: url(/img/picons01.png);
-        margin-right:156px;
-    }
-
-    &:hover {
-        color: white;
-        background-color:@light_blue;
-        text-decoration:none;
+    small {
+        font-size: .8em;
+        color: lighten(desaturate(@headingColor, 10%), 30%);
     }
 }
 
-div.homepage h3 {
-    text-transform:uppercase;
-    font-family:"arial narrow";
-    letter-spacing:1px;
-    font-weight:normal;
+h1 {
+    font-size: 3em;
+    .headingDefaults;
 }
 
-div.spacer {
-    height:25px;
+h2 {
+    font-size: 2.5em;
+    .headingDefaults;
 }
 
-div.post-title {
-    
-    a {
+h3 {
+    font-size: 2.5em;
+    color: lighten(@headingColor, 20%);
+    .headingDefaults;
+}
 
-        background:@light_grey;
-        color: @dark_grey;
+h4 {
+    margin: .7em 0 .5em 0;
+    font-size: 2em;
+    .headingDefaults;
+}
 
-        width:565px;
+h5 {
+    margin: .7em 0 .5em 0;
+    font-size: 2em;
+    color: lighten(@headingColor, 20%);
+    .headingDefaults;
+}
 
+header, nav, article, footer {
+    .clearfix;
+}
+
+nav {
+    ul {
+        list-style:none;
+        padding:0;
+        margin:0;
         display:block;
 
-        padding: 10px 5px;
-        margin-bottom:5px;
+        li {
+            float:left;
+            display:inline-block;
+            padding: 10px 5px;
+            margin: 0 5px 10px 5px;
+            background: white;
+            border-bottom: 4px solid @backgroundColor;
 
-        #font.sans-serif(normal, 12px);
-
-        &:hover {
-            color: white;
-            background:@light_blue;
-            text-decoration:none;
+            a {
+                color:@black;
+                text-decoration: none;
+                background: @white;
+                font-weight:bold;
+            }
+            
+            &:hover, &.active {
+                border-bottom: 4px solid hsl(3, 99%, 50%);
+                .transition;
+                text-decoration: none;
+            }
         }
 
-        span {
-            float:right;
-        }
     }
 }
-div.post-date {
-    span {
-        padding: 10px 5px 10px 0;
-        display:block;
-        text-transform:capitalize;
 
-        #font.monospace(normal 12px);
-    }
-}
 
-div#post {
-    p {
-        #font.serif(normal, 15px);
-        text-align:justify;
-        color:#333;
-    }
+section ul {
+    padding: 0 0 0 40px;
+    li {
+        a {
+            text-decoration: none;
+            color: darken(@proseColor, 20%);
 
-    div.highlight {
-        .border-radius(3px);
-        pre {
-            background-color: #002B36;
-            font-size:11pt;
-        }
-        code {
-            background-color: transparent;
-            color:#839496;
-            padding: 0;
+            &:hover {
+                color: lighten(@proseColor, 30%);
+            }
         }
     }
 }

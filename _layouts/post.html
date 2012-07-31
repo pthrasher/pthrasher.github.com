@@ -1,54 +1,31 @@
 ---
 layout: default
 ---
-<div class="row">
-    <div class="span12 spacer">
-</div>
-</div>
-<div class="row">
-<div class="span8 offset2">
-    <h1>{{ page.title }} <small>{{ page.date | date_to_string }}</small></h1>
-    <div id="post">
-        {% if page.via %}
-                {{ content }}
-            <p class='meta'>(via <a href='{{ page.viaurl }}'>{{ page.via }}</a>)</p>
-        {% else %}
-                {{ content }}
-        {% endif %}
-    </div>
 
-    <div id="comments">
-        <h2>Critical Acclaim</h2>
-        <ul class="unstyled">
-            <li><div id="boastful"></div></li>
-        </ul>
-    </div>
-    {% if page.hckrnws %}
-    <div id="related">
-      <h2>Commentary</h2>
-        <ul class="unstyled">
-          <li>
-          Head over to the <a href="{{page.hckrnws}}">hacker news post</a> to discuss.
-          </li>
-        </ul>
-    </div>
+<header>
+    <div class="wrapper">
+        <h1>{{ page.title }}</h1>
+    {% if page.subtitle %}
+        <h2>{{ page.subtitle }}</h2>
     {% endif %}
-    <div id="related">
-      <h2>Read More of My Stuff</h2>
-        {% for post in site.related_posts limit:3 %}
-        <ul class="unstyled">
-          <li><span>{{ post.date | date_to_string }}</span> <a href="{{ post.url }}">{{ post.title }}</a></li>
-      </ul>
-        {% endfor %}
     </div>
+</header>
 
-    <script type="text/javascript" charset="utf-8">
-        $(function(){
-            $("#boastful").boastful({
-                empty_message: "No one's mentioned this page on Twitter yet. <a href=\"http://twitter.com?status=http://philipthrasher.com{{page.url}}\">You could be the first</a>.",
-                location: "http://philipthrasher.com{{page.url}}"
-            });
-        });
-    </script>
-</div>
-</div>
+<article>
+    <section class="wrapper">
+    {% if page.via %}
+        {{ content }}
+        <p class='meta'>(via <a href='{{ page.viaurl }}'>{{ page.via }}</a>)</p>
+    {% else %}
+        {{ content }}
+    {% endif %}
+    </section>
+    <section class="wrapper">
+        <h5>Related</h5>
+        {% for post in site.related_posts limit:3 %}
+        <ul>
+            <li><span>{{ post.date | date_to_string }}</span> <a href="{{ post.url }}">{{ post.title }}</a></li>
+        </ul>
+        {% endfor %}
+    </section>
+</article>

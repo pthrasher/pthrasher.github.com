@@ -2,82 +2,52 @@
 layout: default
 title: free your ass and your mind will follow
 ---
-<div class="homepage">
-    <div class="row">
-    <div class="span8 columns spacer">
-    </div>
-</div>
-<div class="row">
-    <div class="span8 columns offset2">
-        <h3>Blogity</h3>
-    </div>
-</div>
 
-{% for post in site.posts %}<div class="row">
-    <div class="span2 offset2 post-date">
-        <span>{{ post.date | date_to_string }}</span>
-    </div>
-    <div class="span6 columns post-title">
-        <a href="{{ post.url }}">{{ post.title }} <span>{{ post.content | number_of_words }} words</span></a>
-    </div>
-</div>
-{% endfor %}
-<div class="row">
-    <div class="span12 columns spacer">
-    </div>
-</div>
+<article>
+    <section class="wrapper">
+        <h3>My Words</h3>
+        <ul>
+        {% for post in site.posts %}<div class="row">
+            <li>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </section>
+</article>
+<article>
+    <section class="wrapper">
+        <h3>Other's Words</h3>
+        <ul>
+            <li>
+                <a href="http://pycon.blip.tv/file/4883374/">Linguistics of Twitter by Michael D Healy</a>
+            </li>
+            <li>
+                <a href="http://pycon.blip.tv/file/4882883/">diff Javascript Python by Ian Bicking</a>
+            </li>
+        </ul>
+    </section>
+</article>
 
-<div class="row">
-    <div class="span8 columns offset2">
-        <h3>Chatterings</h3>
-    </div>
-</div>
-
-<div class="row">
-    <div class="span5 columns offset4 post-title">
-	<a href="http://pycon.blip.tv/file/4883374/">Linguistics of Twitter by Michael D Healy</a>
-    </div>
-</div>
-<div class="row">
-    <div class="span5 offset4 post-title">
-	<a href="http://pycon.blip.tv/file/4882883/">diff Javascript Python by Ian Bicking</a>
-    </div>
-</div>
-
-<div class="row">
-    <div class="span12 columns spacer">
-    </div>
-</div>
-
-<div class="row">
-    <div class="span8 columns offset2">
-        <h3>Cool stuff</h3>
-    </div>
-</div>
-
-<div class="row">
-    <div class="span5 offset4 post-title">
-        <a href="http://vicoapp.com/">Vico: A modern VIM-like editor for the Mac that is scriptable in Nu</a>
-    </div>
-</div>
-<div class="row">
-    <div class="span5 offset4 post-title">
-        <a href="http://github.com/mojombo/primer/">Primer: JavaScript based Flash-like API layered on top of Canvas.</a>
-    </div>
-</div>
-<div class="row">
-    <div class="span5 offset4 post-title">
-        <a href="http://ethanschoonover.com/solarized">Solarized: Syntax highlighting akin to reading a book.</a>
-    </div>
-</div>
-<div class="row">
-    <div class="span5 offset4 post-title">
-        <a href="https://github.com/jayferd/balls/">bash on balls: a web framework written entirely in bash</a>
-    </div>
-</div>
-<div class="row">
-    <div class="span5 offset4 post-title">
-        <a href="http://vim.wikia.com/wiki/Vim_Tips_Wiki">Vim Tips Wiki: A really good wiki full of ViM goodness</a>
-    </div>
-</div>
-</div>
+<article>
+    <section class="wrapper">
+        <h3>Neat Stuff</h3>
+        <ul>
+            <li>
+                <a href="http://vicoapp.com/">Vico: A modern VIM-like editor for the Mac that is scriptable in Nu</a>
+            </li>
+            <li>
+                <a href="http://github.com/mojombo/primer/">Primer: JavaScript based Flash-like API layered on top of Canvas.</a>
+            </li>
+            <li>
+                <a href="http://ethanschoonover.com/solarized">Solarized: Syntax highlighting akin to reading a book.</a>
+            </li>
+            <li>
+                <a href="https://github.com/jayferd/balls/">bash on balls: a web framework written entirely in bash</a>
+            </li>
+            <li>
+                <a href="http://vim.wikia.com/wiki/Vim_Tips_Wiki">Vim Tips Wiki: A really good wiki full of ViM goodness</a>
+            </li>
+        </ul>
+    </section>
+</article>

@@ -32,4 +32,4 @@ industry is constantly changing... You can't last forever on a single language,
 or framework. If you're not willing to keep up, and continue learning forever,
 pick a different profession.
 
-</rant>
+`</rant>`
