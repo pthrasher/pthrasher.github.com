@@ -58,6 +58,7 @@ ul.home {
 ul.home li {
   height: 32px;
   padding: 0;
+  margin: 0;
 }
 ul.home li a {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
