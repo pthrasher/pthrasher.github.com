@@ -1,0 +1,375 @@
+body {
+  background-color: #f7f7f7;
+  font-family: Georgia, 'Times New Roman', serif;
+  text-align: center;
+  color: #333333;
+  font-size: 18px;
+  line-height: 22px;
+}
+a {
+  color: #7a7acd;
+}
+a:hover {
+  text-decoration: none;
+}
+.generic-body-item {
+  text-align: left;
+  margin: 22px auto;
+  width: 666px;
+}
+body > p,
+body > h1,
+body > h2,
+body > h3,
+body > div {
+  text-align: left;
+  margin: 22px auto;
+  width: 666px;
+}
+body > ol li {
+  text-align: left;
+  margin: 22px auto;
+  width: 666px;
+  list-style: normal;
+  padding-left: 5px;
+  list-style: decimal;
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+body > ul li {
+  text-align: left;
+  margin: 22px auto;
+  width: 666px;
+  list-style: normal;
+  padding-left: 5px;
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+ul.home {
+  list-style: none;
+  padding: 0;
+}
+ul.home li {
+  width: 666px;
+  height: 32px;
+}
+ul.home li a {
+  float: left;
+  padding: 5px 2px;
+  width: 666px;
+  text-decoration: none;
+  color: #666;
+  display: inline-block;
+  border-radius: 3px;
+}
+ul.home li a span {
+  color: #888;
+  font-size: 12px;
+  float: right;
+}
+ul.home li a:hover {
+  background-color: #e6e6e6;
+}
+.centered {
+  width: 666px;
+  margin: 0 auto;
+  text-align: left;
+  display: block;
+}
+blockquote {
+  width: 666px;
+  margin: 0 auto;
+  text-align: left;
+  display: block;
+  background: white;
+  font-style: italic;
+  margin-bottom: 40px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+blockquote p {
+  margin: 0;
+  color: #666666;
+}
+div.highlight {
+  width: 100%;
+  margin: 0 0 30px 0;
+  position: relative;
+  overflow: auto;
+  border-top: 1px solid rgba(51, 51, 51, 0.15);
+  border-bottom: 1px solid rgba(51, 51, 51, 0.15);
+}
+div.highlight pre {
+  text-align: left;
+  position: absolute;
+  top: 20px;
+  display: block;
+  line-height: 18px;
+  font-size: 16px;
+}
+h1 span.amp,
+h2 span.amp,
+p span.amp {
+  font-family: Baskerville, Palatino, Constantia, "Book Antiqua", "URW Palladio L", serif;
+  font-style: italic;
+  color: #999;
+}
+h1,
+h2,
+h3 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+h1 {
+  font-size: 26px;
+  line-height: 30px;
+  color: #333333;
+}
+h2 {
+  font-size: 22px;
+  line-height: 26px;
+  color: #4d4d4d;
+}
+h3 {
+  font-size: 18px;
+  line-height: 22px;
+  color: #666666;
+}
+img.logo {
+  width: 177px;
+  height: 190px;
+}
+#menu {
+  border-top: 1px dotted #cccccc;
+  border-bottom: 1px dotted #cccccc;
+  text-align: center;
+}
+#menu a {
+  padding: 5px 15px;
+  text-decoration: none;
+  color: #666;
+  display: inline-block;
+}
+#menu a:hover {
+  background-color: #e6e6e6;
+}
+#footer {
+  border-top: 1px dotted #cccccc;
+  border-bottom: 1px dotted #cccccc;
+  text-align: center;
+}
+#footer p {
+  font-size: 10px;
+  color: #888;
+}
+#footer p a {
+  font-weight: bold;
+}
+.text-center {
+  text-align: center;
+}
+.highlight {
+  background: #ffffff;
+}
+.highlight .c {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+.highlight .k {
+  font-weight: bold;
+}
+.highlight .o {
+  font-weight: bold;
+}
+.highlight .cm {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+.highlight .gd .x {
+  color: #000000;
+  background-color: #ffaaaa;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+.highlight .gi .x {
+  color: #000000;
+  background-color: #aaffaa;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #800080;
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .kc {
+  font-weight: bold;
+}
+.highlight .kd {
+  font-weight: bold;
+}
+.highlight .kn {
+  font-weight: bold;
+}
+.highlight .kp {
+  font-weight: bold;
+}
+.highlight .kr {
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .m {
+  color: #009999;
+}
+.highlight .s {
+  color: #dd1144;
+}
+.highlight .na {
+  color: #008080;
+}
+.highlight .nb {
+  color: #0086b3;
+}
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #008080;
+}
+.highlight .ni {
+  color: #800080;
+}
+.highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #555555;
+}
+.highlight .nt {
+  color: #000080;
+}
+.highlight .nv {
+  color: #008080;
+}
+.highlight .ow {
+  font-weight: bold;
+}
+.highlight .w {
+  color: #bbbbbb;
+}
+.highlight .mf {
+  color: #009999;
+}
+.highlight .mh {
+  color: #009999;
+}
+.highlight .mi {
+  color: #009999;
+}
+.highlight .mo {
+  color: #009999;
+}
+.highlight .sb {
+  color: #dd1144;
+}
+.highlight .sc {
+  color: #dd1144;
+}
+.highlight .sd {
+  color: #dd1144;
+}
+.highlight .s2 {
+  color: #dd1144;
+}
+.highlight .se {
+  color: #dd1144;
+}
+.highlight .sh {
+  color: #dd1144;
+}
+.highlight .si {
+  color: #dd1144;
+}
+.highlight .sx {
+  color: #dd1144;
+}
+.highlight .sr {
+  color: #009926;
+}
+.highlight .s1 {
+  color: #dd1144;
+}
+.highlight .ss {
+  color: #990073;
+}
+.highlight .bp {
+  color: #999999;
+}
+.highlight .vc {
+  color: #008080;
+}
+.highlight .vg {
+  color: #008080;
+}
+.highlight .vi {
+  color: #008080;
+}
+.highlight .il {
+  color: #009999;
+}
+.highlight .gc {
+  color: #999;
+  background-color: #eaf2f5;
+}
