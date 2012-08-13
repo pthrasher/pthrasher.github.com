@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ubuntu 11.04 64bit Headless Bitcoin Mining 11.5 ATI and 2.1 SDK
-published: true
+published: false
 hckrnws: http://news.ycombinator.com/item?id=2872985
 ---
 

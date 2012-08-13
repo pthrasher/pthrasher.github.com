@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ClearType Ruins the Web
-published: true
+published: false
 ---
 
 

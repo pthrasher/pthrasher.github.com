@@ -1,31 +1,28 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-        <title>{{ page.title }}</title>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/style/blog.css" />
+</head>
+<body>
+  <img class="logo" src="/img/rider2.gif" />
+  <h2 class="text-center">pthrash talks sh*t</h2>
+  <div id="menu">
+    <a href="/">posts</a>
+    <a href="//github.com/pthrasher">github</a>
+    <a href="//twitter.com/philipthrasher">twitter</a>
+  </div>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="/css/styles.css"/> 
-    </head>
-    <body lang="en">
-        <nav>
-            <ul>
-                <li><a href="/">home</a></li>
-                <li><a href="//github.com/pthrasher">github</a></li>
-                <li><a href="//forrse.me/pthrasher">forrst</a></li>
-                <li><a href="//twitter.com/philipthrasher">twitter</a></li>
-                <li><a href="/resume.html">resumé</a></li>
-            </ul>
-        </nav>
+  {{ content }}
 
-        {{ content }}
 
-        <script>
-            var _gaq=[['_setAccount','UA-8502114-3'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
-    </body>
+  <div id="footer">
+    <p>Copyright &copy; Philip Thrasher 2012 &mdash; Artwork by <a href="http://fool.deviantart.com/gallery/">fool</a></p>
+  </div>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/script.js"></script>
+</body>
 </html>
+

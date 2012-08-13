@@ -3,6 +3,7 @@ layout: post
 title: Exercise More to Hack Better
 via: "@rjurney"
 viaurl: "http://datasyndrome.com/post/1474842339/exercise-more-to-hack-better"
+published: false
 ---
 
 ![Surfin' Time!](/img/beach.jpg)

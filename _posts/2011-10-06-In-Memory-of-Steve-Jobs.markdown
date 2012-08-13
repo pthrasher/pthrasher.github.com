@@ -1,6 +1,7 @@
 ---
 title: In Memory of Steve Jobs
 layout: post
+published: false
 ---
 
 I was introduced to Steve, and Apple in 2005 when I bought my

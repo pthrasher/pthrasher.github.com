@@ -3,51 +3,8 @@ layout: default
 title: free your ass and your mind will follow
 ---
 
-<article>
-    <section class="wrapper">
-        <h3>My Words</h3>
-        <ul>
-        {% for post in site.posts %}<div class="row">
-            <li>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-            </li>
-        {% endfor %}
-        </ul>
-    </section>
-</article>
-<article>
-    <section class="wrapper">
-        <h3>Other's Words</h3>
-        <ul>
-            <li>
-                <a href="http://pycon.blip.tv/file/4883374/">Linguistics of Twitter by Michael D Healy</a>
-            </li>
-            <li>
-                <a href="http://pycon.blip.tv/file/4882883/">diff Javascript Python by Ian Bicking</a>
-            </li>
-        </ul>
-    </section>
-</article>
-
-<article>
-    <section class="wrapper">
-        <h3>Neat Stuff</h3>
-        <ul>
-            <li>
-                <a href="http://vicoapp.com/">Vico: A modern VIM-like editor for the Mac that is scriptable in Nu</a>
-            </li>
-            <li>
-                <a href="http://github.com/mojombo/primer/">Primer: JavaScript based Flash-like API layered on top of Canvas.</a>
-            </li>
-            <li>
-                <a href="http://ethanschoonover.com/solarized">Solarized: Syntax highlighting akin to reading a book.</a>
-            </li>
-            <li>
-                <a href="https://github.com/jayferd/balls/">bash on balls: a web framework written entirely in bash</a>
-            </li>
-            <li>
-                <a href="http://vim.wikia.com/wiki/Vim_Tips_Wiki">Vim Tips Wiki: A really good wiki full of ViM goodness</a>
-            </li>
-        </ul>
-    </section>
-</article>
+<ul class="home">
+    {% for post in site.posts %}
+    <li><a href="{{ post.url }}">{{ post.title }}<span>{{ post.date | date_to_string }}</span></a></li>
+    {% endfor %}
+</ul>
