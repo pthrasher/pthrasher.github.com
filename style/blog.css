@@ -50,16 +50,20 @@ body > ul li {
 ul.home {
   list-style: none;
   padding: 0;
+  margin: 0 auto;
+  text-align: left;
+  display: block;
+  width: 670px;
 }
 ul.home li {
-  width: 670px;
   height: 32px;
+  padding: 0;
 }
 ul.home li a {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   float: left;
   padding: 5px 2px;
-  width: 670px;
+  width: 666px;
   text-decoration: none;
   color: #333;
   display: inline-block;
