@@ -2,7 +2,7 @@
 date: September 18 2011 12:23:24
 title: When People Are Silent They Think You're Stupid
 layout: post
-published: false
+published: true
 ---
 
 When you make a comment that you think is profound, or clever, and you tweet
@@ -40,5 +40,7 @@ don't know, they ask questions, unless they don't care. If they don't care,
 that's their issue.
 
 Mostly, I say all this to talk to a younger version of me, that may be out
-there. If you want to seem more knowlegable, addmitting what you don't know is
-the best way to go.
+there. If you want to seem more knowledgeable, admitting realizing the vastness
+of what you actually *don't* know is step one. Adopt a be-better attitude as
+opposed to an I'm-good-as-is attitude. Become the eternal apprentice. Never
+regarding yourself as a master, but as the never-ending student in life.
