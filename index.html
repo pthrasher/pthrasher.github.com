@@ -3,8 +3,8 @@ layout: default
 title: free your ass and your mind will follow
 ---
 
-<ul class="home">
+<ul>
     {% for post in site.posts %}
-    <li><a href="{{ post.url }}">{{ post.title }}<span>{{ post.date | date_to_string }}</span></a></li>
+    <li><a href="{{ post.url }}">{{ post.title }}<span> &mdash; {{ post.date | date_to_string }}</span></a></li>
     {% endfor %}
 </ul>
