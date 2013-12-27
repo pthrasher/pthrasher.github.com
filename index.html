@@ -2,9 +2,24 @@
 layout: default
 title: free your ass and your mind will follow
 ---
+{% for post in site.posts  %}
+    {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+    {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
 
-<ul>
-    {% for post in site.posts %}
-    <li><a href="{{ post.url }}">{{ post.title }}<span> &mdash; {{ post.date | date_to_string }}</span></a></li>
-    {% endfor %}
-</ul>
+    {% if forloop.first %}
+    <h3>{{this_year}}</h3>
+    <ul class="posts">
+    {% endif %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a><span>{{ post.date | date_to_string }}</span></li>
+
+    {% if forloop.last %}
+    </ul>
+    {% else %}
+        {% if this_year != next_year %}
+        </ul>
+        <h3>{{next_year}}</h3>
+        <ul class="posts">
+        {% endif %}
+    {% endif %}
+{% endfor %}
+

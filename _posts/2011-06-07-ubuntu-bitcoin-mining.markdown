@@ -102,8 +102,8 @@ echo "Startming Miner: ${1}"
 
 DISPLAY=:0 ${HOMEDIR}/DiabloMiner/DiabloMiner-Linux.sh -u ${MINERUSER} -p ${MINERPASS} -l ${MINERSERV} -r ${MINERPORT} -D ${1} -v 2 -w 256
 {% endhighlight %}
-Setup Headless Bitcoin Mining 
- *** Warning *** This will stop your computer from booting a graphical desktop and allow only text console or remote ssh access into the mining server. 
+Setup Headless Bitcoin Mining
+ *** Warning *** This will stop your computer from booting a graphical desktop and allow only text console or remote ssh access into the mining server.
 If you rely on a GUI for administration you may want to rethink this.
 {% highlight bash %}
 sudo apt-get install openssh-server

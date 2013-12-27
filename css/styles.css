@@ -1,0 +1,290 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 18px;
+  background-color: #f9fafa;
+  color: #1f1500;
+  margin: 0;
+  padding: 10px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 200;
+  color: #240021;
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  font-weight: 100;
+  font-size: 34px;
+  line-height: 40px;
+}
+h3 {
+  padding: 15px 0;
+}
+p {
+  font-family: Georgia, serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 28px;
+}
+blockquote {
+  font-style: italic;
+}
+a {
+  color: #1f1100;
+}
+a:hover {
+  text-decoration: none;
+}
+a:visited {
+  color: #8a007f;
+}
+h2.site-title {
+  font-size: 16px;
+  line-height: 18px;
+}
+#menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#menu li {
+  float: left;
+  margin: 0;
+  padding: 5px;
+}
+#menu li:first-child {
+  padding: 5px 5px 5px 0;
+}
+.content {
+  clear: both;
+  padding: 20px 0 0 0;
+  max-width: 900px;
+}
+.posts {
+  list-style: none;
+}
+.posts li {
+  margin: 10px 0;
+}
+.posts li span {
+  display: block;
+  font-size: 11px;
+  line-height: 12px;
+  color: #aaa;
+}
+div.highlight {
+  width: 100%;
+}
+div.highlight pre {
+  text-align: left;
+  display: block;
+  line-height: 18px;
+  font-size: 16px;
+}
+.highlight .c {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+.highlight .k {
+  font-weight: bold;
+}
+.highlight .o {
+  font-weight: bold;
+}
+.highlight .cm {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #999999;
+  font-weight: bold;
+}
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+.highlight .gd .x {
+  color: #000000;
+  background-color: #ffaaaa;
+}
+.highlight .ge {
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+.highlight .gi .x {
+  color: #000000;
+  background-color: #aaffaa;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #800080;
+  font-weight: bold;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .kc {
+  font-weight: bold;
+}
+.highlight .kd {
+  font-weight: bold;
+}
+.highlight .kn {
+  font-weight: bold;
+}
+.highlight .kp {
+  font-weight: bold;
+}
+.highlight .kr {
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .m {
+  color: #009999;
+}
+.highlight .s {
+  color: #dd1144;
+}
+.highlight .na {
+  color: #008080;
+}
+.highlight .nb {
+  color: #0086b3;
+}
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #008080;
+}
+.highlight .ni {
+  color: #800080;
+}
+.highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #990000;
+  font-weight: bold;
+}
+.highlight .nn {
+  color: #555555;
+}
+.highlight .nt {
+  color: #000080;
+}
+.highlight .nv {
+  color: #008080;
+}
+.highlight .ow {
+  font-weight: bold;
+}
+.highlight .w {
+  color: #bbbbbb;
+}
+.highlight .mf {
+  color: #009999;
+}
+.highlight .mh {
+  color: #009999;
+}
+.highlight .mi {
+  color: #009999;
+}
+.highlight .mo {
+  color: #009999;
+}
+.highlight .sb {
+  color: #dd1144;
+}
+.highlight .sc {
+  color: #dd1144;
+}
+.highlight .sd {
+  color: #dd1144;
+}
+.highlight .s2 {
+  color: #dd1144;
+}
+.highlight .se {
+  color: #dd1144;
+}
+.highlight .sh {
+  color: #dd1144;
+}
+.highlight .si {
+  color: #dd1144;
+}
+.highlight .sx {
+  color: #dd1144;
+}
+.highlight .sr {
+  color: #009926;
+}
+.highlight .s1 {
+  color: #dd1144;
+}
+.highlight .ss {
+  color: #990073;
+}
+.highlight .bp {
+  color: #999999;
+}
+.highlight .vc {
+  color: #008080;
+}
+.highlight .vg {
+  color: #008080;
+}
+.highlight .vi {
+  color: #008080;
+}
+.highlight .il {
+  color: #009999;
+}
+.highlight .gc {
+  color: #999;
+  background-color: #eaf2f5;
+}

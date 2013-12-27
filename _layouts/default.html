@@ -3,30 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <title>{{ page.title }}</title>
-        <style type="text/css">
-            body {
-                font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
-                font-style: 'Normal';
-                font-size: 16px;
-                line-height: 18px;
-                background: #fff;
-                color: #444;
-            }
-            h1, h2 h3, h4, h5, h6 { font-style: 'light'; }
-            p { font-family: Georgia, 'Times New Roman', Serif; }
-            a { color: #555; }
-            a:visited { color: #777; }
-        </style>
+        <link rel="stylesheet" href="/css/styles.css" />
     </head>
     <body>
-        <h2>The blog of Philip Thrasher</h2>
+        <h2 class="site-title">pthra.sh</h2>
         <ul id="menu">
             <li><a href="/">all posts</a></li>
             <li><a href="//github.com/pthrasher">github</a></li>
             <li><a href="//twitter.com/philipthrasher">twitter</a></li>
             <li><a href="//plus.google.com/100445970823815698924?rel=author" rel="author">g plus</a></li>
         </ul>
+        <div class="content">
         {{ content }}
+        </div>
     </body>
 </html>
 

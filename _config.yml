@@ -1,5 +1,3 @@
 pygments: true
-server: true
-exclude: [newpost.py]
-auto: true
+exclude: [less]
 permalink: 'pretty'
