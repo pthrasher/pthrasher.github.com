@@ -2,7 +2,7 @@
 date: September 18 2011 12:23:24
 title: When People Are Silent They Think You're Stupid
 layout: post
-published: true
+published: false
 ---
 
 When you make a comment that you think is profound, or clever, and you tweet

@@ -51,14 +51,31 @@ blockquote {
 }
 
 a {
-    color: @deep-brown-purple;
+    color: @dark-blueish;
+    font-weight: bold;
+    text-decoration: none;
 
     &:hover {
-        text-decoration: none
+        color: lighten(@dark-blueish, 5%);
     }
+
     &:visited {
-        color: lighten(@dark-purple, 20%);
     }
+}
+a.post-link {
+    margin-left: -15px;
+    &:before {
+        content: '\2713 ';
+        padding-right: 2px;
+        color: @light-blueish;
+    }
+}
+
+a.post-link:visited:before {
+    content: '\2713 ';
+    padding-right: 2px;
+    color: @dark-blueish;
+    opacity: 1;
 }
 
 

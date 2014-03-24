@@ -37,13 +37,26 @@ blockquote {
   font-style: italic;
 }
 a {
-  color: #1f1100;
-}
-a:hover {
+  color: #516485;
+  font-weight: bold;
   text-decoration: none;
 }
-a:visited {
-  color: #8a007f;
+a:hover {
+  color: #5b7095;
+}
+a.post-link {
+  margin-left: -15px;
+}
+a.post-link:before {
+  content: '\2713 ';
+  padding-right: 2px;
+  color: #d5e0eb;
+}
+a.post-link:visited:before {
+  content: '\2713 ';
+  padding-right: 2px;
+  color: #516485;
+  opacity: 1;
 }
 h2.site-title {
   font-size: 16px;
