@@ -1,5 +1,5 @@
 (function() {
-  var ComplaintsGaugeDirective, Map, MapDirective, ProgressBar, RISK_COLORS, RiskGaugeDirective, directives,
+  var GaugeDirective, Map, MapDirective, ProgressBar, RISK_COLORS, directives,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   RISK_COLORS = {
@@ -10,15 +10,17 @@
   };
 
   Map = (function() {
-    function Map(container, us, minPctForeign, maxPctForeign, width, height) {
+    function Map(container, us, minPctForeign, maxPctForeign, width, height, scope) {
       this.container = container;
       this.us = us;
       this.minPctForeign = minPctForeign;
       this.maxPctForeign = maxPctForeign;
       this.width = width;
       this.height = height;
+      this.scope = scope;
       this.zoomTo = __bind(this.zoomTo, this);
       this.resetView = __bind(this.resetView, this);
+      this.clicked = __bind(this.clicked, this);
       this.halfWidth = this.width / 2;
       this.halfHeight = this.height / 2;
       this.setup();
@@ -71,8 +73,12 @@
       };
       this.g.append("g").attr("class", "pdcig-counties").selectAll("path").data(topojson.feature(this.us, this.us.objects.county).features, idKey).enter().append("path").attr("d", this.path).attr("class", countyClassHandler).attr("id", function(d) {
         return "county-" + d.id;
-      });
+      }).on('click', this.clicked);
       this.g.append("path").datum(topojson.mesh(this.us, this.us.objects.county, this._aIsntB)).attr("class", "pdcig-county-borders").attr("d", this.path);
+    };
+
+    Map.prototype.clicked = function(d) {
+      this.scope.$emit('countySelected', d.id);
     };
 
     Map.prototype.transition = function(scale, x, y) {
@@ -128,7 +134,7 @@
         watcher = scope.$watch('topology', function(newVal, oldVal) {
           if ((newVal != null) && !firstPassComplete) {
             firstPassComplete = true;
-            map = new Map(d3El, newVal, scope.minPctForeign, scope.maxPctForeign, w, h);
+            map = new Map(d3El, newVal, scope.minPctForeign, scope.maxPctForeign, w, h, scope);
             scope.$on('resetMap', map.resetView);
             scope.$on('zoomMap', function(e, item, kind) {
               var eNode, id;
@@ -150,17 +156,21 @@
 
     TWO_PI = 2 * Math.PI;
 
-    function ProgressBar(container, width, height, total, minNum, key) {
+    function ProgressBar(container, width, height, total, minNum, formatter) {
       var minDimension;
       this.container = container;
       this.width = width;
       this.height = height;
       this.total = total;
       this.minNum = minNum;
-      this.key = key;
+      this.formatter = formatter != null ? formatter : null;
       this.kill = __bind(this.kill, this);
       this.setPct = __bind(this.setPct, this);
-      this.updateQuantize = __bind(this.updateQuantize, this);
+      if (this.formatter == null) {
+        this.formatter = function(p) {
+          return p.toFixed(2);
+        };
+      }
       this.progress = this.minNum;
       this.formatPercent = d3.format(".00f");
       this.lastColor = RISK_COLORS['N/A'];
@@ -172,8 +182,6 @@
       return;
     }
 
-    ProgressBar.prototype.updateQuantize = function() {};
-
     ProgressBar.prototype.setup = function() {
       this.arc = d3.svg.arc().startAngle(0).innerRadius(this.innerRadius).outerRadius(this.outerRadius);
       this.svg = this.container.append("svg").attr("width", this.width).attr("height", this.height).append("g").attr("transform", "translate(" + (this.width / 2) + "," + (this.height / 2) + ")");
@@ -183,13 +191,13 @@
       this.text = this.meter.append("text").attr("text-anchor", "middle").style('font-size', "" + this.textSize + "px").attr("dy", ".35em");
     };
 
-    ProgressBar.prototype.setPct = function(pct, newColor, postfix) {
+    ProgressBar.prototype.setPct = function(pct, newColor) {
       var color, i,
         _this = this;
       i = d3.interpolate(this.progress, pct);
       color = d3.interpolateRgb(this.lastColor, newColor);
       this.lastColor = newColor;
-      return this.meter.transition().duration(500).tween("" + this.key + "-progress", function() {
+      return this.meter.transition().duration(500).tween("progress", function() {
         return function(t) {
           var c, pot;
           _this.progress = i(t);
@@ -197,8 +205,11 @@
             _this.progress = 0;
           }
           pot = _this.progress / _this.total;
+          if (pot !== pot) {
+            return;
+          }
           _this.foreground.attr("d", _this.arc.endAngle(TWO_PI * pot));
-          _this.text.text(Math.round(_this.progress) + postfix);
+          _this.text.text(_this.formatter(_this.progress));
           c = color(t);
           _this.foreground.style('fill', c);
           _this.text.style('fill', c);
@@ -214,63 +225,50 @@
 
   })();
 
-  ComplaintsGaugeDirective = function() {
+  GaugeDirective = function() {
     return {
       restrict: 'E',
       replace: true,
       template: '<div></div>',
       link: function(scope, el, attrs) {
-        var d3el, firstPassComplete, pb;
+        var d3el, firstPassComplete, formatter, h, max, min, options, pbInstance, w, watcher;
         d3el = d3.select(el[0]);
+        pbInstance = null;
         firstPassComplete = false;
-        pb = null;
-        scope.$watch(attrs.bindTo, function(newVal, oldVal) {
-          var pct, riskLevel;
+        if (attrs.gaugeOptions == null) {
+          return;
+        }
+        options = scope.$eval(attrs.gaugeOptions);
+        w = options.width;
+        h = options.height;
+        max = options.maxVal;
+        min = options.minVal;
+        formatter = options.formatter;
+        watcher = scope.$watch(options.bindTo, function(newVal, oldVal) {
+          var riskLevel;
           if ((newVal != null) && !firstPassComplete) {
-            pb = new ProgressBar(d3el, 201, 65, scope.maxNumComplaints, scope.minNumComplaints, 'complaints');
+            pbInstance = new ProgressBar(d3el, w, h, max, min, formatter);
             firstPassComplete = true;
           }
           if (!(firstPassComplete && (newVal != null))) {
             return;
           }
-          pct = newVal;
-          if (pct !== pct) {
-            pb.setPct(0, RISK_COLORS['N/A'], '');
+          options = scope.$eval(attrs.gaugeOptions);
+          max = options.maxVal;
+          min = options.minVal;
+          pbInstance.total = max;
+          if (_.isString(newVal)) {
+            newVal = +newVal;
+          }
+          if (newVal !== newVal) {
+            pbInstance.setPct(0, RISK_COLORS['N/A']);
           } else {
             riskLevel = scope.currentCounty.properties.riskLevel;
-            pb.setPct(pct, RISK_COLORS[riskLevel], '');
+            pbInstance.setPct(newVal, RISK_COLORS[riskLevel]);
           }
         });
-      }
-    };
-  };
-
-  RiskGaugeDirective = function() {
-    return {
-      restrict: 'E',
-      replace: true,
-      template: '<div></div>',
-      link: function(scope, el, attrs) {
-        var d3el, firstPassComplete, pb;
-        d3el = d3.select(el[0]);
-        firstPassComplete = false;
-        pb = null;
-        scope.$watch(attrs.bindTo, function(newVal, oldVal) {
-          var pct, riskLevel;
-          if ((newVal != null) && !firstPassComplete) {
-            pb = new ProgressBar(d3el, 201, 65, 100, scope.minPctForeign, 'risk');
-            firstPassComplete = true;
-          }
-          if (!(firstPassComplete && (newVal != null))) {
-            return;
-          }
-          pct = parseFloat(newVal);
-          if (pct !== pct) {
-            pb.setPct(0, RISK_COLORS['N/A'], '');
-          } else {
-            riskLevel = scope.currentCounty.properties.riskLevel;
-            pb.setPct(pct, RISK_COLORS[riskLevel], '%');
-          }
+        el.on('$destroy', function() {
+          watcher();
         });
       }
     };
@@ -278,6 +276,6 @@
 
   directives = angular.module('PDCIG.directives', []);
 
-  directives.directive('pdcigMap', MapDirective).directive('pdcigRiskGauge', RiskGaugeDirective).directive('pdcigComplaintsGauge', ComplaintsGaugeDirective);
+  directives.directive('pdcigMap', MapDirective).directive('pdcigGauge', GaugeDirective);
 
 }).call(this);

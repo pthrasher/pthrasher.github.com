@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>mapviz</title>
-    <link rel="stylesheet" href="/experiments/mapviz/css/styles.css" />
-
+    <link rel="stylesheet" href="/static/css/styles.css" />
     <style>
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
@@ -77,9 +76,9 @@
                 <div class="county-risk-gauge"
                      ng-hide="currentCounty == null || currentCounty.properties.riskLevel == 'N/A'">
                     <div class="message">Total Complaints</div>
-                    <pdcig-complaints-gauge class="actual-risk-gauge" bind-to="currentCounty.properties.numComplaints"></pdcig-complaints-gauge>
+                    <pdcig-gauge class="actual-risk-gauge" gauge-options="complaintsGaugeOpts"></pdcig-gauge>
                     <div class="message">Percentage of population that is foreign-born:</div>
-                    <pdcig-risk-gauge class="actual-risk-gauge" bind-to="currentCounty.properties.pctForeign"></pdcig-risk-gauge>
+                    <pdcig-gauge class="actual-risk-gauge" gauge-options="popGaugeOpts"></pdcig-gauge>
                 </div>
             </div>
         </div>
@@ -89,14 +88,23 @@
     </div>
 
 
-    <script type="text/javascript" src="/experiments/mapviz/js/vendor/d3.v3.min.js"></script>
-    <script type="text/javascript" src="/experiments/mapviz/js/vendor/topojson.v1.min.js"></script>
-    <script type="text/javascript" src="/experiments/mapviz/js/vendor/lodash-2.4.1/lodash.js"></script>
-    <script type="text/javascript" src="/experiments/mapviz/js/vendor/jquery/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="/experiments/mapviz/js/vendor/angular-1.3.0-beta.5/angular.min.js"></script>
-    <script type="text/javascript" src="/experiments/mapviz/js/vendor/angular-1.3.0-beta.5/angular-animate.min.js"></script>
-    <script type="text/javascript" src="/experiments/mapviz/js/directives.js"></script>
-    <script type="text/javascript" src="/experiments/mapviz/js/controllers.js"></script>
+    <script type="text/javascript" src="/static/js/vendor/d3.v3.min.js"></script>
+    <script type="text/javascript" src="/static/js/vendor/topojson.v1.min.js"></script>
+    <script type="text/javascript" src="/static/js/vendor/lodash-2.4.1/lodash.js"></script>
+    <script type="text/javascript" src="/static/js/vendor/jquery/jquery-2.1.0.min.js"></script>
+
+    <!-- Angular 1.3.0-beta.5 (latest) -->
+    <script type="text/javascript" src="/static/js/vendor/angular-1.3.0-beta.5/angular.min.js"></script>
+    <script type="text/javascript" src="/static/js/vendor/angular-1.3.0-beta.5/angular-animate.min.js"></script>
+    <!-- <script type="text/javascript" src="/static/js/vendor/angular-1.3.0-beta.5/angular-cookies.min.js"></script> -->
+    <!-- <script type="text/javascript" src="/static/js/vendor/angular-1.3.0-beta.5/angular-loader.min.js"></script> -->
+    <!-- <script type="text/javascript" src="/static/js/vendor/angular-1.3.0-beta.5/angular-resource.min.js"></script> -->
+    <!-- <script type="text/javascript" src="/static/js/vendor/angular-1.3.0-beta.5/angular-route.min.js"></script> -->
+    <!-- <script type="text/javascript" src="/static/js/vendor/angular-1.3.0-beta.5/angular-sanitize.min.js"></script> -->
+    <!-- <script type="text/javascript" src="/static/js/vendor/angular-1.3.0-beta.5/angular-touch.min.js"></script> -->
+
+    <script type="text/javascript" src="/static/js/directives.js"></script>
+    <script type="text/javascript" src="/static/js/controllers.js"></script>
 
 </body>
 </html>

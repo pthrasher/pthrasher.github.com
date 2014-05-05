@@ -17,6 +17,7 @@
       this.countiesFilter = __bind(this.countiesFilter, this);
       this.toggleCounty = __bind(this.toggleCounty, this);
       this.toggleState = __bind(this.toggleState, this);
+      this.mapCountySelected = __bind(this.mapCountySelected, this);
       this.handleDataLoaded = __bind(this.handleDataLoaded, this);
       d3.json(DATAURI, this.handleDataLoaded);
       this.minPctForeign = +Infinity;
@@ -35,11 +36,32 @@
       this.$scope.toggleState = this.toggleState;
       this.$scope.toggleCounty = this.toggleCounty;
       this.$scope.zipSearchTrigger = this.zipSearchTrigger;
+      this.$scope.$on('countySelected', this.mapCountySelected);
       this.$scope.stateFilter = '';
       this.$scope.statesFilter = this.statesFilter;
       this.$scope.countyFilter = '';
       this.$scope.countiesFilter = this.countiesFilter;
       this.deferredProcessing = this.$q.defer();
+      this.$scope.popGaugeOpts = {
+        bindTo: 'currentCounty.properties.pctForeign',
+        width: 201,
+        height: 65,
+        minVal: 0,
+        maxVal: 100,
+        formatter: function(p) {
+          return "" + (p.toFixed(2)) + "%";
+        }
+      };
+      this.$scope.complaintsGaugeOpts = {
+        bindTo: 'currentCounty.properties.numComplaints',
+        width: 201,
+        height: 65,
+        minVal: 0,
+        maxVal: 0,
+        formatter: function(p) {
+          return Math.round(p).toString();
+        }
+      };
       this.$scope.counties = [];
       this.$scope.states = [];
       this.$scope.topology = null;
@@ -78,6 +100,7 @@
         }
         stateName = state.properties.name;
         countyName = county.properties.name;
+        county.properties.stateId = state.id;
         if (state.counties == null) {
           state.counties = [];
         }
@@ -121,6 +144,9 @@
       this.$scope.maxPctForeign = this.maxPctForeign;
       this.$scope.minNumComplaints = this.minNumComplaints;
       this.$scope.maxNumComplaints = this.maxNumComplaints;
+      this.$scope.popGaugeOpts.minVal = this.minPctForeign;
+      this.$scope.complaintsGaugeOpts.minVal = this.minNumComplaints;
+      this.$scope.complaintsGaugeOpts.maxVal = this.maxNumComplaints;
       this.$scope.$apply();
     };
 
@@ -141,6 +167,26 @@
       });
     };
 
+    InfographicCtrl.prototype.mapCountySelected = function(e, countyId) {
+      var county, state;
+      console.log('running');
+      county = this.countiesById[countyId];
+      if (county == null) {
+        return;
+      }
+      state = this.statesById[county.properties.stateId];
+      if (state == null) {
+        return;
+      }
+      if (state !== this.$scope.currentState) {
+        this.toggleState(state.properties.name);
+      }
+      this.toggleCounty(county.properties.name);
+      this.$scope.countyFilter = county.properties.name;
+      this.$scope.stateFilter = state.properties.name;
+      this.$scope.$apply();
+    };
+
     InfographicCtrl.prototype.toggleState = function(stateName) {
       var id, state;
       id = this.stateIdsByName[stateName];
@@ -148,6 +194,7 @@
         return;
       }
       state = this.statesById[id];
+      this.$scope.zipCode = '';
       if (state === this.$scope.currentState) {
         this.$scope.currentState = null;
         this.$scope.currentCounty = null;
@@ -156,6 +203,7 @@
         this.$scope.counties = [];
         this.$scope.$broadcast('resetMap');
         this.$scope.countyFilter = '';
+        this.$scope.stateFilter = '';
       } else {
         this.$scope.currentState = state;
         this.$scope.currentStateName = state.properties.name;
@@ -171,10 +219,12 @@
       if (county == null) {
         return;
       }
+      this.$scope.zipCode = '';
       if (county === this.$scope.currentCounty) {
         this.$scope.currentCounty = null;
         this.$scope.currentCountyName = null;
         this.$scope.$broadcast('zoomMap', this.$scope.currentState, 'state');
+        this.$scope.countyFilter = '';
       } else {
         this.$scope.currentCounty = county;
         this.$scope.currentCountyName = countyName;
@@ -184,7 +234,7 @@
 
     InfographicCtrl.prototype.itemFilter = function(item, filter) {
       var name;
-      name = item.properties.name.toLowerCase().replace('county', '');
+      name = item.properties.name.toLowerCase();
       return name.indexOf(filter.toLowerCase()) === 0;
     };
 
