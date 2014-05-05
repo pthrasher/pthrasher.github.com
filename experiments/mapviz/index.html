@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mapviz</title>
+    <link rel="stylesheet" href="/experiments/mapviz/css/styles.css" />
+
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+    </style>
+
+</head>
+<body>
+
+    <div id="counties-infographic"
+         ng-app="PDCIG"
+         ng-controller="InfographicCtrl">
+        <input type="text"
+               class="pdcig-zip-search"
+               placeholder="find by zipcode..."
+               ng-model="zipCode"
+               ng-keyup="zipSearchTrigger()" />
+        <div class="pdcig-panels">
+            <div class="pdcig-panel state-picker-panel">
+                <input type="text"
+                       placeholder="type to search..."
+                       ng-model="stateFilter"
+                       ng-show="states.length > 0" />
+                <ul>
+                    <li ng-repeat="state in states | filter:statesFilter"
+                        ng-bind="state.properties.name"
+                        ng-class="{active:state.properties.name==currentStateName}"
+                        ng-click="toggleState(state.properties.name)"></li>
+                </ul>
+            </div>
+            <div class="pdcig-panel county-picker-panel">
+                <div class="please-pick"
+                     ng-hide="currentStateName != null || states.length <= 0">
+                        &larr; pick<br />&nbsp;a state
+                </div>
+                <input type="text"
+                       placeholder="type to search..."
+                       ng-hide="counties.length <= 0"
+                       ng-model="countyFilter" />
+                <ul>
+                    <li ng-repeat="county in counties | filter:countiesFilter"
+                        ng-bind="county.properties.name"
+                        ng-class="{active:county.properties.name==currentCountyName}"
+                        ng-click="toggleCounty(county.properties.name)"></li>
+                </ul>
+            </div>
+            <div class="pdcig-panel county-info-panel">
+                <div class="please-pick"
+                     ng-hide="currentCountyName != null || currentStateName == null">
+                        &larr; pick<br />&nbsp;a county
+                </div>
+                <div class="message"
+                    ng-cloak
+                    ng-hide="currentCounty == null">
+                    Risk Level:
+                </div>
+                <div class="county-risk-level"
+                     ng-cloak
+                     ng-class="{
+                        'risk-na': currentCounty.properties.riskLevel=='N/A',
+                        'risk-low': currentCounty.properties.riskLevel=='LOW',
+                        'risk-medium': currentCounty.properties.riskLevel=='MEDIUM',
+                        'risk-high': currentCounty.properties.riskLevel=='HIGH',
+                     }"
+                     ng-hide="currentCounty == null"
+                     ng-bind="currentCounty.properties.riskLevel"></div>
+                <div class="message" ng-show="currentCounty.properties.riskLevel == 'N/A'">
+                    <strong>Unknown Risk Level</strong><br />We have no data for this county.
+                </div>
+                <div class="county-risk-gauge"
+                     ng-hide="currentCounty == null || currentCounty.properties.riskLevel == 'N/A'">
+                    <div class="message">Total Complaints</div>
+                    <pdcig-complaints-gauge class="actual-risk-gauge" bind-to="currentCounty.properties.numComplaints"></pdcig-complaints-gauge>
+                    <div class="message">Percentage of population that is foreign-born:</div>
+                    <pdcig-risk-gauge class="actual-risk-gauge" bind-to="currentCounty.properties.pctForeign"></pdcig-risk-gauge>
+                </div>
+            </div>
+        </div>
+        <div class="pdcig-map">
+            <pdcig-map topology="topology" options="mapOpts"></pdcig-map>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="/experiments/mapviz/js/vendor/d3.v3.min.js"></script>
+    <script type="text/javascript" src="/experiments/mapviz/js/vendor/topojson.v1.min.js"></script>
+    <script type="text/javascript" src="/experiments/mapviz/js/vendor/lodash-2.4.1/lodash.js"></script>
+    <script type="text/javascript" src="/experiments/mapviz/js/vendor/jquery/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/experiments/mapviz/js/vendor/angular-1.3.0-beta.5/angular.min.js"></script>
+    <script type="text/javascript" src="/experiments/mapviz/js/vendor/angular-1.3.0-beta.5/angular-animate.min.js"></script>
+    <script type="text/javascript" src="/experiments/mapviz/js/directives.js"></script>
+    <script type="text/javascript" src="/experiments/mapviz/js/controllers.js"></script>
+
+</body>
+</html>
