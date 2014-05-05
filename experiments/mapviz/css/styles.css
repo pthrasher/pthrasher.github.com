@@ -203,6 +203,9 @@ body {
   stroke-linecap: round;
   pointer-events: none;
 }
+.pdcig-counties .county {
+  cursor: pointer;
+}
 .pdcig-counties .county.q0-9 {
   fill: #ffffcc;
 }
@@ -229,6 +232,36 @@ body {
 }
 .pdcig-counties .county.q8-9 {
   fill: #800026;
+}
+.pdcig-counties .county:hover {
+  fill: #c3c3c3;
+}
+.pdcig-counties .county:hover.q0-9 {
+  fill: #ffffff;
+}
+.pdcig-counties .county:hover.q1-9 {
+  fill: #fff7d3;
+}
+.pdcig-counties .county:hover.q2-9 {
+  fill: #fee7a9;
+}
+.pdcig-counties .county:hover.q3-9 {
+  fill: #fec87f;
+}
+.pdcig-counties .county:hover.q4-9 {
+  fill: #feab6e;
+}
+.pdcig-counties .county:hover.q5-9 {
+  fill: #fd785c;
+}
+.pdcig-counties .county:hover.q6-9 {
+  fill: #ea4648;
+}
+.pdcig-counties .county:hover.q7-9 {
+  fill: #f00030;
+}
+.pdcig-counties .county:hover.q8-9 {
+  fill: #b30035;
 }
 .pdcig-state-borders {
   fill: none;

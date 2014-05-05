@@ -1,5 +1,5 @@
 (function() {
-  var GaugeDirective, Map, MapDirective, ProgressBar, RISK_COLORS, directives,
+  var GaugeDirective, Map, MapDirective, ProgressBar, RISK_COLORS, ScrollIfDirective, directives,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   RISK_COLORS = {
@@ -116,6 +116,25 @@
     return Map;
 
   })();
+
+  ScrollIfDirective = function() {
+    return function(scope, el, attrs) {
+      var watcher;
+      watcher = scope.$watch(attrs.scrollIf, function(newVal, oldVal) {
+        var pos;
+        if (!((newVal != null) && newVal)) {
+          return;
+        }
+        pos = el.position().top + el.parent().scrollTop() - 35;
+        el.parent().animate({
+          scrollTop: pos
+        }, 500);
+      });
+      el.on('$destroy', function() {
+        watcher();
+      });
+    };
+  };
 
   MapDirective = function() {
     return {
@@ -276,6 +295,6 @@
 
   directives = angular.module('PDCIG.directives', []);
 
-  directives.directive('pdcigMap', MapDirective).directive('pdcigGauge', GaugeDirective);
+  directives.directive('pdcigMap', MapDirective).directive('pdcigGauge', GaugeDirective).directive('scrollIf', ScrollIfDirective);
 
 }).call(this);

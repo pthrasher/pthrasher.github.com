@@ -31,7 +31,8 @@
                     <li ng-repeat="state in states | filter:statesFilter"
                         ng-bind="state.properties.name"
                         ng-class="{active:state.properties.name==currentStateName}"
-                        ng-click="toggleState(state.properties.name)"></li>
+                        scroll-if="state.properties.name==currentStateName && allowScrollTo"
+                        ng-click="toggleState(state.properties.name, false)"></li>
                 </ul>
             </div>
             <div class="pdcig-panel county-picker-panel">
@@ -47,7 +48,8 @@
                     <li ng-repeat="county in counties | filter:countiesFilter"
                         ng-bind="county.properties.name"
                         ng-class="{active:county.properties.name==currentCountyName}"
-                        ng-click="toggleCounty(county.properties.name)"></li>
+                        scroll-if="county.properties.name==currentCountyName && allowScrollTo"
+                        ng-click="toggleCounty(county.properties.name, false)"></li>
                 </ul>
             </div>
             <div class="pdcig-panel county-info-panel">

@@ -66,6 +66,7 @@
       this.$scope.states = [];
       this.$scope.topology = null;
       this.$scope.mapOpts = null;
+      this.$scope.allowScrollTo = true;
       this.$scope.currentState = null;
       this.$scope.currentCounty = null;
       this.$scope.currentStateName = null;
@@ -182,17 +183,19 @@
         this.toggleState(state.properties.name);
       }
       this.toggleCounty(county.properties.name);
-      this.$scope.countyFilter = county.properties.name;
-      this.$scope.stateFilter = state.properties.name;
       this.$scope.$apply();
     };
 
-    InfographicCtrl.prototype.toggleState = function(stateName) {
+    InfographicCtrl.prototype.toggleState = function(stateName, allowScrollTo) {
       var id, state;
+      if (allowScrollTo == null) {
+        allowScrollTo = true;
+      }
       id = this.stateIdsByName[stateName];
       if (id == null) {
         return;
       }
+      this.$scope.allowScrollTo = allowScrollTo;
       state = this.statesById[id];
       this.$scope.zipCode = '';
       if (state === this.$scope.currentState) {
@@ -212,13 +215,17 @@
       }
     };
 
-    InfographicCtrl.prototype.toggleCounty = function(countyName) {
+    InfographicCtrl.prototype.toggleCounty = function(countyName, allowScrollTo) {
       var county, stateName, _ref;
+      if (allowScrollTo == null) {
+        allowScrollTo = true;
+      }
       stateName = this.$scope.currentStateName;
       county = (_ref = this.countiesByState[stateName]) != null ? _ref[countyName] : void 0;
       if (county == null) {
         return;
       }
+      this.$scope.allowScrollTo = allowScrollTo;
       this.$scope.zipCode = '';
       if (county === this.$scope.currentCounty) {
         this.$scope.currentCounty = null;
@@ -286,7 +293,6 @@
       this.$scope.currentState = state;
       this.$scope.currentStateName = state.properties.name;
       this.$scope.counties = this.countiesByZip[this.$scope.zipCode];
-      this.$scope.stateFilter = state.properties.name;
       this.$scope.currentCounty = null;
       this.$scope.currentCountyName = null;
       if (counties.length === 1) {
